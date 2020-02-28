@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 /**
  * Title:
@@ -14,6 +14,7 @@
 
 public class Warrior extends Hero
 {
+	private Scanner scan = new Scanner(System.in);
 
     public Warrior()
 	{
@@ -62,7 +63,7 @@ public class Warrior extends Hero
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Crushing Blow on Opponent");
 		    System.out.print("Choose an option: ");
-		    choice = Keyboard.readInt();
+		    choice = scan.nextInt();
 
 		    switch (choice)
 		    {
