@@ -32,6 +32,7 @@ public abstract class Hero extends DungeonCharacter
 {
 	protected double chanceToBlock;
 	protected int numTurns;
+	// REFACTOR 1
 	private Scanner scan = new Scanner(System.in);
 
 //-----------------------------------------------------------------
@@ -57,6 +58,7 @@ This method is called by: hero constructor
   public void readName()
   {
 		System.out.print("Enter character name: ");
+		// REFACTOR 1
 		name = scan.next();
   }//end readName method
 

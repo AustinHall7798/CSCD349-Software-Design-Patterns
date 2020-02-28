@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 public class Sorceress extends Hero
 {
+	// REFACTOR 1
 	private Scanner scan = new Scanner(System.in);
 	public final int MIN_ADD = 25;
 	public final int MAX_ADD = 50;
@@ -58,6 +59,7 @@ public class Sorceress extends Hero
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Increase Hit Points");
 		    System.out.print("Choose an option: ");
+		 // REFACTOR 1
 		    choice = scan.nextInt();
 
 		    switch (choice)

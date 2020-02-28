@@ -47,6 +47,7 @@ import java.util.Scanner;
 */
 public class Dungeon
 {
+	// REFACTOR 1
 	private static Scanner scan = new Scanner(System.in);
 	
     public static void main(String[] args)
@@ -79,6 +80,7 @@ this task
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
 						   "3. Thief");
+		// REFACTOR 1
 		choice = scan.nextInt();
 
 		switch(choice)
@@ -140,12 +142,14 @@ user has the option of quitting.
 ---------------------------------------------------------------------*/
 	public static void battle(Hero theHero, Monster theMonster)
 	{
+		// REFACTOR 1
 		String pause = "p";
 		System.out.println(theHero.getName() + " battles " +
 							theMonster.getName());
 		System.out.println("---------------------------------------------");
 
 		//do battle
+		// REFACTOR 1
 		while (theHero.isAlive() && theMonster.isAlive() && !pause.equalsIgnoreCase("Q"))
 		{
 		    //hero goes first 
@@ -157,6 +161,7 @@ user has the option of quitting.
 
 			//let the player bail out if desired
 			System.out.print("\n-->q to quit, anything else to continue: ");
+			// REFACTOR 1
 			pause = scan.next();
 
 		}//end battle loop

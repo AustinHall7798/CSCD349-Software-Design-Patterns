@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Thief extends Hero
 {
 
+	// REFACTOR 1
 	private Scanner scan = new Scanner(System.in);
     public Thief()
 	{
@@ -54,6 +55,7 @@ public class Thief extends Hero
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Surprise Attack");
 		    System.out.print("Choose an option: ");
+		 // REFACTOR 1
 		    choice = scan.nextInt();
 
 		    switch (choice)
