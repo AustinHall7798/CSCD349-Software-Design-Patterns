@@ -1,5 +1,3 @@
-
-
 /**
  * Title: Hero.java
  *
