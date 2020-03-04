@@ -1,4 +1,6 @@
+
 import java.util.Scanner;
+
 
 /**
  * Title: Hero.java
