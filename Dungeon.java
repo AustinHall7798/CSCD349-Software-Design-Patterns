@@ -75,18 +75,18 @@ this task
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
 						   "3. Thief");
-		choice = Keyboard.readInt();
-
+		choice = Keyboard.readInt();		
+		
 		switch(choice)
 		{
-			case 1: return new Warrior();
+			case 1: return HeroFactory.createWarrior();
 
-			case 2: return new Sorceress();
+			case 2: return HeroFactory.createSorceress();
 
-			case 3: return new Thief();
+			case 3: return HeroFactory.createThief();
 
 			default: System.out.println("invalid choice, returning Thief");
-				     return new Thief();
+				     return HeroFactory.createThief();
 		}//end switch
 	}//end chooseHero method
 
@@ -102,14 +102,14 @@ a polymorphic reference (Monster) to accomplish this task.
 
 		switch(choice)
 		{
-			case 1: return new Ogre();
+			case 1: return MonsterFactory.createOgre();
 
-			case 2: return new Gremlin();
+			case 2: return MonsterFactory.createGremlin();
 
-			case 3: return new Skeleton();
+			case 3: return MonsterFactory.createSkeleton();
 
 			default: System.out.println("invalid choice, returning Skeleton");
-				     return new Skeleton();
+				     return MonsterFactory.createSkeleton();
 		}//end switch
 	}//end generateMonster method
 
