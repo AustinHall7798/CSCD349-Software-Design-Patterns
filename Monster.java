@@ -1,3 +1,5 @@
+
+
 /**
  * Title:
  * Description:
@@ -24,7 +26,7 @@ public abstract class Monster extends DungeonCharacter
 	this.maxHeal = maxHeal;
 	this.minHeal = minHeal;
 
-  }//end monster constructor
+  }//end monster construcotr
 
 //-----------------------------------------------------------------
   public void heal()

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Title: Hero.java
  *
@@ -30,6 +32,8 @@ public abstract class Hero extends DungeonCharacter
 {
 	protected double chanceToBlock;
 	protected int numTurns;
+	// REFACTOR 1
+	private Scanner scan = new Scanner(System.in);
 
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
@@ -54,7 +58,8 @@ This method is called by: hero constructor
   public void readName()
   {
 		System.out.print("Enter character name: ");
-		name = Keyboard.readString();
+		// REFACTOR 1
+		name = scan.next();
   }//end readName method
 
 /*-------------------------------------------------------
