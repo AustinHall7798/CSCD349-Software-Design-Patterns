@@ -1,5 +1,3 @@
-
-
 /**
  * Title: DungeonCharacter.java
  *
