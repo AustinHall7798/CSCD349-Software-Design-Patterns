@@ -12,7 +12,3 @@ public class MonsterFactory {
 		return new Skeleton();
 	}
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> AustinsDungeonRefactor
