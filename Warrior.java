@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 
 
-public class Warrior extends Hero
+public class Warrior extends Hero implements AttackInterface
 {
 	// REFACTOR 1
 	private Scanner scan = new Scanner(System.in);
@@ -24,30 +24,19 @@ public class Warrior extends Hero
 
 
     }//end constructor
+    
 
 
 	public void crushingBlow(DungeonCharacter opponent)
 	{
-		if (Math.random() <= .4)
-		{
-			int blowPoints = (int)(Math.random() * 76) + 100;
-			System.out.println(name + " lands a CRUSHING BLOW for " + blowPoints
-								+ " damage!");
-			opponent.subtractHitPoints(blowPoints);
-		}//end blow succeeded
-		else
-		{
-			System.out.println(name + " failed to land a crushing blow");
-			System.out.println();
-		}//blow failed
-
+		new CrushingBlow(this, opponent);
 	}//end crushingBlow method
 
 	public void attack(DungeonCharacter opponent)
 	{
 		System.out.println(name + " swings a mighty sword at " +
 							opponent.getName() + ":");
-		super.attack(opponent);
+		new StandardAttack(this, opponent);
 	}//end override of attack method
 
 
