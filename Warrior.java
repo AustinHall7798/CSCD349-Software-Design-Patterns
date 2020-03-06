@@ -9,7 +9,6 @@
 
 import java.util.Scanner;
 
-
 public class Warrior extends Hero
 {
 	

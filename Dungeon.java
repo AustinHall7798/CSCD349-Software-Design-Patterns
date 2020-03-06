@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * Title: Dungeon.java
  *
@@ -45,6 +43,8 @@ import java.util.Scanner;
   Once a battle concludes, the user has the option of repeating the above
 
 */
+import java.util.Scanner;
+
 public class Dungeon {
 	private static Scanner scan = new Scanner(System.in);
 	
