@@ -12,13 +12,11 @@ import java.util.Scanner;
 
 
 
-public class Warrior extends Hero implements AttackInterface
-{
+public class Warrior extends Hero implements AttackInterface {
 	// REFACTOR 1
 	private Scanner scan = new Scanner(System.in);
 
-    public Warrior()
-	{
+    public Warrior() {
 
 		super("Warrior", 125, 4, .8, 35, 60, .2);
 
@@ -27,37 +25,31 @@ public class Warrior extends Hero implements AttackInterface
     
 
 
-	public void crushingBlow(DungeonCharacter opponent)
-	{
+	public void crushingBlow(DungeonCharacter opponent) {
 		new CrushingBlow(this, opponent);
 	}//end crushingBlow method
 
-	public void attack(DungeonCharacter opponent)
-	{
-		System.out.println(getName() + " swings a mighty sword at " +
-							opponent.getName() + ":");
+	public void attack(DungeonCharacter opponent) {
+		System.out.println(name + " swings a mighty sword at " + opponent.getName() + ":");
 		new StandardAttack(this, opponent);
 	}//end override of attack method
 
 
 
 
-    public void battleChoices(DungeonCharacter opponent)
-	{
+    public void battleChoices(DungeonCharacter opponent) {
 		int choice;
 
 		super.battleChoices(opponent);
 
-		do
-		{
+		do {
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Crushing Blow on Opponent");
 		    System.out.print("Choose an option: ");
 		 // REFACTOR 1
 		    choice = scan.nextInt();
 
-		    switch (choice)
-		    {
+		    switch (choice) {
 			    case 1: attack(opponent);
 			        break;
 			    case 2: crushingBlow(opponent);
