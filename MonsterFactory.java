@@ -1,5 +1,4 @@
 public class MonsterFactory {
-
 	public static Monster createGremlin() {
 		return new Gremlin();
 	}

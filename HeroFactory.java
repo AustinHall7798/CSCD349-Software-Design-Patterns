@@ -1,5 +1,4 @@
 public class HeroFactory {
-
 	public static Hero createSorceress() {
 		return new Sorceress();
 	}
