@@ -45,34 +45,29 @@ import java.util.Scanner;
   Once a battle concludes, the user has the option of repeating the above
 
 */
-public class Dungeon
-{
+public class Dungeon {
 	// REFACTOR 1
 	private static Scanner scan = new Scanner(System.in);
 	
-    public static void main(String[] args)
-	{
-
+    public static void main(String[] args) {
+      
 		Hero theHero;
 		Monster theMonster;
 
-		do
-		{
+		do {
 		    theHero = chooseHero();
 		    theMonster = generateMonster();
 			battle(theHero, theMonster);
 
 		} while (playAgain());
-
-    }//end main method
+ }//end main method
 
 /*-------------------------------------------------------------------
 chooseHero allows the user to select a hero, creates that hero, and
 returns it.  It utilizes a polymorphic reference (Hero) to accomplish
 this task
 ---------------------------------------------------------------------*/
-	public static Hero chooseHero()
-	{
+	public static Hero chooseHero() {
 		int choice;
 		Hero theHero;
 
@@ -80,16 +75,14 @@ this task
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
 						   "3. Thief");
+
 		// REFACTOR 1
 		choice = scan.nextInt();
 
 		switch (choice) {
 			case 1: return HeroFactory.createWarrior();
-
 			case 2: return HeroFactory.createSorceress();
-
 			case 3: return HeroFactory.createThief();
-
 			default: System.out.println("invalid choice, returning Thief");
 					 return HeroFactory.createThief();
 		}//end switch
@@ -99,14 +92,12 @@ this task
 generateMonster randomly selects a Monster and returns it.  It utilizes
 a polymorphic reference (Monster) to accomplish this task.
 ---------------------------------------------------------------------*/
-	public static Monster generateMonster()
-	{
+	public static Monster generateMonster() {
 		int choice;
 
 		choice = (int)(Math.random() * 3) + 1;
 
-		switch(choice)
-		{
+		switch(choice) {
 			case 1: return MonsterFactory.createOgre();
 
 			case 2: return MonsterFactory.createGremlin();
@@ -122,8 +113,8 @@ a polymorphic reference (Monster) to accomplish this task.
 playAgain allows gets choice from user to play another game.  It returns
 true if the user chooses to continue, false otherwise.
 ---------------------------------------------------------------------*/
-	public static boolean playAgain()
-	{
+
+	public static boolean playAgain() {
 		String again;
 
 		System.out.println("Play again (y/n)?");
@@ -139,40 +130,45 @@ and a Monster to be passed in.  Battle occurs in rounds.  The Hero
 goes first, then the Monster.  At the conclusion of each round, the
 user has the option of quitting.
 ---------------------------------------------------------------------*/
-	public static void battle(Hero theHero, Monster theMonster)
-	{
+
+
+	public static void battle(Hero theHero, Monster theMonster) {
 		// REFACTOR 1
 		String pause = "p";
+
 		System.out.println(theHero.getName() + " battles " +
 							theMonster.getName());
 		System.out.println("---------------------------------------------");
 
 		//do battle
+
+
 		// REFACTOR 1
 		while (theHero.isAlive() && theMonster.isAlive() && !pause.equalsIgnoreCase("Q"))
 		{
-		    //hero goes first 
+		  //hero goes first 
 			theHero.battleChoices(theMonster);
 
 			//monster's turn (provided it's still alive!)
 			if (theMonster.isAlive())
 				new StandardAttack(theMonster, theHero);
 
+
 			//let the player bail out if desired
 			System.out.print("\n-->q to quit, anything else to continue: ");
+
 			// REFACTOR 1
 			pause = scan.next();
-
 		}//end battle loop
 
-		if (!theMonster.isAlive())
+		if (!theMonster.isAlive()) {
 		    System.out.println(theHero.getName() + " was victorious!");
-		else if (!theHero.isAlive())
+		}
+		else if (!theHero.isAlive()) {
 			System.out.println(theHero.getName() + " was defeated :-(");
-		else//both are alive so user quit the game
+		}
+		else { //both are alive so user quit the game
 			System.out.println("Quitters never win ;-)");
-
+		}
 	}//end battle method
-
-
 }//end Dungeon class
