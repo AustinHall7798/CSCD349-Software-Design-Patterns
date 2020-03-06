@@ -1,5 +1,5 @@
 
-public class StandardAttack implements AttackInterface {
+public class StandardAttack implements Attack {
 	DungeonCharacter player;
 	DungeonCharacter opponent;
 
@@ -10,20 +10,18 @@ public class StandardAttack implements AttackInterface {
 		attack(opponent);
 	}
 
-	
 	public void attack(DungeonCharacter opponent) {
 		boolean canAttack;
 		int damage;
 
-		canAttack = Math.random() <= player.chanceToHit;
+		canAttack = Math.random() <= player.getChanceToHit();
 
 		if (canAttack) {
-			damage = (int) (Math.random() * (player.damageMax - player.damageMin + 1)) + player.damageMin;
+			damage = (int) (Math.random() * (player.getDamageMax() - player.getDamageMin() + 1)) + player.getDamageMin();
 			opponent.subtractHitPoints(damage);
 
 			System.out.println();
-		} // end if can attack
-		else {
+		} else {
 
 			System.out.println(player.getName() + "'s attack on " + opponent.getName() + " failed!");
 			System.out.println();

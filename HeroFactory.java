@@ -1,4 +1,4 @@
-public class HeroFactory {
+public abstract class HeroFactory {
 	public static Hero createSorceress() {
 		return new Sorceress();
 	}
