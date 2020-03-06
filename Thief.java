@@ -10,8 +10,6 @@ import java.util.Scanner;
  */
 
 public class Thief extends Hero implements AttackInterface {
-
-public class Thief extends Hero {
 	// REFACTOR 1
 	private Scanner scan = new Scanner(System.in);
   
