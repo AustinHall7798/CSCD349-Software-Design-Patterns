@@ -34,11 +34,13 @@
 
 public abstract class DungeonCharacter
 {
-	protected String name;
-	protected int hitPoints;
-	protected int attackSpeed;
-	protected double chanceToHit;
-	protected int damageMin, damageMax;
+	
+	//changed all of these from protected to private
+	private String name;
+	private int hitPoints;
+	private int attackSpeed;
+	private double chanceToHit;
+	private int damageMin, damageMax;
   
 	public DungeonCharacter(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax) {
@@ -54,6 +56,10 @@ public abstract class DungeonCharacter
 	public String getName() {
 		return name;
 	}//end getName
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public int getHitPoints() {
 		return hitPoints;
@@ -120,4 +126,5 @@ public abstract class DungeonCharacter
 			System.out.println();
 		}//end else
 	}//end attack method
+
 }//end class Character
