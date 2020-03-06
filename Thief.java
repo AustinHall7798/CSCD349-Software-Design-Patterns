@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @version 1.0
  */
 
-public class Thief extends Hero
+public class Thief extends Hero implements AttackInterface
 {
 
 	// REFACTOR 1
@@ -21,23 +21,7 @@ public class Thief extends Hero
 
 	public void surpriseAttack(DungeonCharacter opponent)
 	{
-		double surprise = Math.random();
-		if (surprise <= .4)
-		{
-			System.out.println("Surprise attack was successful!\n" +
-								name + " gets an additional turn.");
-			numTurns++;
-			attack(opponent);
-		}//end surprise
-		else if (surprise >= .9)
-		{
-			System.out.println("Uh oh! " + opponent.getName() + " saw you and" +
-								" blocked your attack!");
-		}
-		else
-		    attack(opponent);
-
-
+		new SupriseAttack(this, opponent);
 	}//end surpriseAttack method
 
 
@@ -72,4 +56,10 @@ public class Thief extends Hero
 		} while(numTurns > 0);
 
     }
+
+	@Override
+	public void attack(DungeonCharacter opponent) {
+		new StandardAttack(this, opponent);
+		
+	}
 }

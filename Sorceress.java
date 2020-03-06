@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 
 
-public class Sorceress extends Hero
+public class Sorceress extends Hero implements AttackInterface
 {
 	// REFACTOR 1
 	private Scanner scan = new Scanner(System.in);
@@ -45,7 +45,7 @@ public class Sorceress extends Hero
 	{
 		System.out.println(name + " casts a spell of fireball at " +
 							opponent.getName() + ":");
-		super.attack(opponent);
+		new StandardAttack(this, opponent);
 	}//end override of attack method
 
 //-----------------------------------------------------------------

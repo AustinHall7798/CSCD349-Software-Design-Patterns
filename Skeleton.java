@@ -9,7 +9,7 @@
  * @version 1.0
  */
 
-public class Skeleton extends Monster
+public class Skeleton extends Monster implements AttackInterface
 {
 
     public Skeleton()
@@ -22,7 +22,7 @@ public class Skeleton extends Monster
 	{
 		System.out.println(name + " slices his rusty blade at " +
 							opponent.getName() + ":");
-		super.attack(opponent);
+		new StandardAttack(this, opponent);
 
 	}//end override of attack
 

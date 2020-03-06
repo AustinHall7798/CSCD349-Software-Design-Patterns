@@ -9,7 +9,7 @@
  * @version 1.0
  */
 
-public class Ogre extends Monster
+public class Ogre extends Monster implements AttackInterface
 {
 
     public Ogre()
@@ -23,7 +23,7 @@ public class Ogre extends Monster
 	{
 		System.out.println(name + " slowly swings a club toward's " +
 							opponent.getName() + ":");
-		super.attack(opponent);
+		new StandardAttack(this, opponent);
 
 	}//end override of attack
 

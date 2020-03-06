@@ -11,3 +11,11 @@
 /Warrior.class
 /HeroFactory.class
 /MonsterFactory.class
+/AttackInterface.class
+/AttackFactory.class
+/AttackFactory$AttackType.class
+/WarriorAttack.class
+/StandardAttack.class
+/SpecialAttack.class
+/CrushingBlow.class
+/SupriseAttack.class

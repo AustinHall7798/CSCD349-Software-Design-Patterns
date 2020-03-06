@@ -7,7 +7,7 @@
  * @version 1.0
  */
 
-public class Gremlin extends Monster
+public class Gremlin extends Monster implements AttackInterface
 {
 
     public Gremlin()
@@ -20,7 +20,7 @@ public class Gremlin extends Monster
 	{
 		System.out.println(name + " jabs his kris at " +
 							opponent.getName() + ":");
-		super.attack(opponent);
+		new StandardAttack(this, opponent);
 
 	}//end override of attack
 
