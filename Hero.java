@@ -1,7 +1,3 @@
-
-import java.util.Scanner;
-
-
 /**
  * Title: Hero.java
  *
@@ -29,10 +25,12 @@ import java.util.Scanner;
  * @version 1.0
  */
 
+import java.util.Scanner;
+
 public abstract class Hero extends DungeonCharacter {
 	protected double chanceToBlock;
 	protected int numTurns;
-	// REFACTOR 1
+	
 	private Scanner scan = new Scanner(System.in);
 
 	//calls base constructor and gets name of hero from user
@@ -46,15 +44,14 @@ public abstract class Hero extends DungeonCharacter {
 	public void readName() {
 		System.out.print("Enter character name: ");
     
-		// REFACTOR 1
+		
 		setName(scan.next());
-	}//end readName method
+	}
 
 	//defend determines if hero blocks attack
-	public boolean defend()
-	{
+	public boolean defend() {
 		return Math.random() <= chanceToBlock;
-	}//end defend method
+	}
 
 	//This method overrides the method inherited from DungeonCharacter
 	public void subtractHitPoints(int hitPoints) {
@@ -64,7 +61,7 @@ public abstract class Hero extends DungeonCharacter {
 		else {
 			super.subtractHitPoints(hitPoints);
 		}
-	}//end method
+	}
 
 	//battleChoices will be overridden in derived classes.
 	public void battleChoices(DungeonCharacter opponent) {
@@ -75,5 +72,5 @@ public abstract class Hero extends DungeonCharacter {
 		}
 
 		System.out.println("Number of turns this round is: " + numTurns);
-	}//end battleChoices
-}//end Hero class
+	}
+}

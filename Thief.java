@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * Title:
  * Description:
@@ -9,14 +7,15 @@ import java.util.Scanner;
  * @version 1.0
  */
 
+import java.util.Scanner;
 
 public class Thief extends Hero {
-	// REFACTOR 1
+	
 	private Scanner scan = new Scanner(System.in);
   
   public Thief() {
 		super("Thief", 75, 6, .8, 20, 40, .5);
-    }//end constructor
+    }
 
 	public void surpriseAttack(DungeonCharacter opponent) {
 		double surprise = Math.random();
@@ -33,7 +32,7 @@ public class Thief extends Hero {
 		else {
 		    attack(opponent);
 		}
-	}//end surpriseAttack method
+	}
 
     public void battleChoices(DungeonCharacter opponent) {
 		super.battleChoices(opponent);
@@ -43,7 +42,7 @@ public class Thief extends Hero {
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Surprise Attack");
 		    System.out.print("Choose an option: ");
-		 // REFACTOR 1
+		 
 		    choice = scan.nextInt();
 
 		    switch (choice) {
@@ -53,7 +52,7 @@ public class Thief extends Hero {
 			        break;
 			    default:
 			        System.out.println("invalid choice!");
-		    }//end switch
+		    }
 
 			numTurns--;
 			if (numTurns > 0) {

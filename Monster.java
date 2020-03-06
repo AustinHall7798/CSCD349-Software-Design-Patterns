@@ -1,5 +1,3 @@
-
-
 /**
  * Title:
  * Description:
@@ -19,7 +17,7 @@ public abstract class Monster extends DungeonCharacter {
 		this.chanceToHeal = chanceToHeal;
 		this.maxHeal = maxHeal;
 		this.minHeal = minHeal;
-	}//end monster constructor
+	}
 
 	public void heal() {
 		boolean canHeal;
@@ -33,11 +31,11 @@ public abstract class Monster extends DungeonCharacter {
 		System.out.println(getName() + " healed itself for " + healPoints + " points.\n"
 							+ "Total hit points remaining are: " + getHitPoints());
 		System.out.println();
-		}//end can heal
-	}//end heal method
+		}
+	}
 
 	public void subtractHitPoints(int hitPoints) {
 		super.subtractHitPoints(hitPoints);
 		heal();
-	}//end subtractHitPoints method
-}//end Monster class
+	}
+}

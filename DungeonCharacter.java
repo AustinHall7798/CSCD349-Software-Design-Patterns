@@ -32,8 +32,7 @@
  */
 
 
-public abstract class DungeonCharacter
-{
+public abstract class DungeonCharacter {
 	
 	//changed all of these from protected to private
 	private String name;
@@ -51,11 +50,11 @@ public abstract class DungeonCharacter
 		this.chanceToHit = chanceToHit;
 		this.damageMin = damageMin;
 		this.damageMax = damageMax;
-	}//end constructor
+	}
 
 	public String getName() {
 		return name;
-	}//end getName
+	}
 	
 	public void setName(String name) {
 		this.name = name;
@@ -63,11 +62,11 @@ public abstract class DungeonCharacter
 
 	public int getHitPoints() {
 		return hitPoints;
-	}//end getHitPoints
+	}
 	
 	public int getAttackSpeed() {
 		return attackSpeed;
-	}//end getAttackSpeed
+	}
 
 	//addHitPoints is used to increment the hitpoints a dungeon character has
 	public void addHitPoints(int hitPoints) {
@@ -76,7 +75,7 @@ public abstract class DungeonCharacter
 		else {
 			this.hitPoints += hitPoints;
 		}
-	}//end addHitPoints method
+	}
 
 	//subtractHitPoints is used to decrement the hitpoints a dungeon character has.
 	public void subtractHitPoints(int hitPoints) {
@@ -92,17 +91,17 @@ public abstract class DungeonCharacter
 			System.out.println(getName() + " now has " +
 								getHitPoints() + " hit points remaining.");
 			System.out.println();
-		}//end else if
+		}
 
 		if (this.hitPoints == 0)
 			System.out.println(name + " has been killed :-(");
-	}//end method
+	}
 
 
 	//isAlive is used to see if a character is still alive by checking hit points
     public boolean isAlive() {
 	  return (hitPoints > 0);
-	}//end isAlive method
+	}
 
 	//attack allows character to attempt attack on opponent.  First, chance to hit
 	//is considered.  If a hit can occur, then the damage is calculated based on
@@ -119,12 +118,12 @@ public abstract class DungeonCharacter
 			opponent.subtractHitPoints(damage);
 
 			System.out.println();
-		}//end if can attack
+		}
 		else {
 			System.out.println(getName() + "'s attack on " + opponent.getName() +
 								" failed!");
 			System.out.println();
-		}//end else
-	}//end attack method
+		}
+	}
 
-}//end class Character
+}
