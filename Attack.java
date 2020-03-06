@@ -1,5 +1,5 @@
 
-public interface AttackInterface {
+public interface Attack {
 
 	public void attack(DungeonCharacter opponent);
 }
