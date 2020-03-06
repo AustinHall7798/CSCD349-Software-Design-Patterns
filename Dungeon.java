@@ -45,7 +45,6 @@ import java.util.Scanner;
   Once a battle concludes, the user has the option of repeating the above
 
 */
-=======
 public class Dungeon
 {
 	// REFACTOR 1

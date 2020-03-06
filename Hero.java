@@ -46,9 +46,8 @@ public abstract class Hero extends DungeonCharacter {
     
 		// REFACTOR 1
 		name = scan.next();
-  }//end readName method
+	}//end readName method
 
-/*-------------------------------------------------------
 	//defend determines if hero blocks attack
 	public boolean defend()
 	{
