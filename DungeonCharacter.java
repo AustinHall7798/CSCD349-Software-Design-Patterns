@@ -4,7 +4,7 @@
  * Description: Abstract Base class for inheritance hierarchy for a
  *              role playing game
  *
- *  class variables (all will be directly accessible from derived classes):
+ *  class variables (all will NOT be directly accessible from derived classes):
  *    name (name of character)
  *    hitPoints (points of damage a character can take before killed)
  *    attackSpeed (how fast the character can attack)
@@ -34,11 +34,13 @@
 
 public abstract class DungeonCharacter
 {
-	protected String name;
-	protected int hitPoints;
-	protected int attackSpeed;
-	protected double chanceToHit;
-	protected int damageMin, damageMax;
+	
+	//changed all of these from protected to private
+	private String name;
+	private int hitPoints;
+	private int attackSpeed;
+	private double chanceToHit;
+	private int damageMin, damageMax;
   
 	public DungeonCharacter(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax) {
@@ -54,6 +56,10 @@ public abstract class DungeonCharacter
 	public String getName() {
 		return name;
 	}//end getName
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public int getHitPoints() {
 		return hitPoints;
@@ -97,5 +103,4 @@ public abstract class DungeonCharacter
     public boolean isAlive() {
 	  return (hitPoints > 0);
 	}//end isAlive method
-
 }//end class Character

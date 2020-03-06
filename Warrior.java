@@ -34,7 +34,7 @@ public class Warrior extends Hero implements AttackInterface
 
 	public void attack(DungeonCharacter opponent)
 	{
-		System.out.println(name + " swings a mighty sword at " +
+		System.out.println(getName() + " swings a mighty sword at " +
 							opponent.getName() + ":");
 		new StandardAttack(this, opponent);
 	}//end override of attack method
