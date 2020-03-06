@@ -45,8 +45,7 @@ import java.util.Scanner;
   Once a battle concludes, the user has the option of repeating the above
 
 */
-public class Dungeon
-{
+public class Dungeon {
 	// REFACTOR 1
 	private static Scanner scan = new Scanner(System.in);
 	
@@ -151,9 +150,9 @@ user has the option of quitting.
 			theHero.battleChoices(theMonster);
 
 			//monster's turn (provided it's still alive!)
-			if (theMonster.isAlive()) {
-			    theMonster.attack(theHero);
-			}
+			if (theMonster.isAlive())
+				new StandardAttack(theMonster, theHero);
+
 
 			//let the player bail out if desired
 			System.out.print("\n-->q to quit, anything else to continue: ");
