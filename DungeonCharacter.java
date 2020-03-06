@@ -4,7 +4,7 @@
  * Description: Abstract Base class for inheritance hierarchy for a
  *              role playing game
  *
- *  class variables (all will be directly accessible from derived classes):
+ *  class variables (all will NOT be directly accessible from derived classes):
  *    name (name of character)
  *    hitPoints (points of damage a character can take before killed)
  *    attackSpeed (how fast the character can attack)
