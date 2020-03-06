@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Title: Dungeon.java
  *
@@ -43,8 +45,14 @@
   Once a battle concludes, the user has the option of repeating the above
 
 */
-public class Dungeon {
+=======
+public class Dungeon
+{
+	// REFACTOR 1
+	private static Scanner scan = new Scanner(System.in);
+	
     public static void main(String[] args) {
+      
 		Hero theHero;
 		Monster theMonster;
 
@@ -54,7 +62,7 @@ public class Dungeon {
 			battle(theHero, theMonster);
 
 		} while (playAgain());
-    }//end main method
+ }//end main method
 
 /*-------------------------------------------------------------------
 chooseHero allows the user to select a hero, creates that hero, and
@@ -69,17 +77,16 @@ this task
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
 						   "3. Thief");
-		choice = Keyboard.readInt();		
-		
-		switch(choice) {
+
+		// REFACTOR 1
+		choice = scan.nextInt();
+
+		switch (choice) {
 			case 1: return HeroFactory.createWarrior();
-
 			case 2: return HeroFactory.createSorceress();
-
 			case 3: return HeroFactory.createThief();
-
 			default: System.out.println("invalid choice, returning Thief");
-				     return HeroFactory.createThief();
+					 return HeroFactory.createThief();
 		}//end switch
 	}//end chooseHero method
 
@@ -100,7 +107,7 @@ a polymorphic reference (Monster) to accomplish this task.
 			case 3: return MonsterFactory.createSkeleton();
 
 			default: System.out.println("invalid choice, returning Skeleton");
-				     return MonsterFactory.createSkeleton();
+					 return MonsterFactory.createSkeleton();
 		}//end switch
 	}//end generateMonster method
 
@@ -108,13 +115,14 @@ a polymorphic reference (Monster) to accomplish this task.
 playAgain allows gets choice from user to play another game.  It returns
 true if the user chooses to continue, false otherwise.
 ---------------------------------------------------------------------*/
+
 	public static boolean playAgain() {
-		char again;
+		String again;
 
 		System.out.println("Play again (y/n)?");
-		again = Keyboard.readChar();
+		again = scan.next();
 
-		return (again == 'Y' || again == 'y');
+		return (again.equalsIgnoreCase("Y"));
 	}//end playAgain method
 
 
@@ -124,15 +132,23 @@ and a Monster to be passed in.  Battle occurs in rounds.  The Hero
 goes first, then the Monster.  At the conclusion of each round, the
 user has the option of quitting.
 ---------------------------------------------------------------------*/
+
+
 	public static void battle(Hero theHero, Monster theMonster) {
-		char pause = 'p';
+		// REFACTOR 1
+		String pause = "p";
+
 		System.out.println(theHero.getName() + " battles " +
 							theMonster.getName());
 		System.out.println("---------------------------------------------");
 
 		//do battle
-		while (theHero.isAlive() && theMonster.isAlive() && pause != 'q') {
-		    //hero goes first
+
+
+		// REFACTOR 1
+		while (theHero.isAlive() && theMonster.isAlive() && !pause.equalsIgnoreCase("Q"))
+		{
+		  //hero goes first 
 			theHero.battleChoices(theMonster);
 
 			//monster's turn (provided it's still alive!)
@@ -142,7 +158,9 @@ user has the option of quitting.
 
 			//let the player bail out if desired
 			System.out.print("\n-->q to quit, anything else to continue: ");
-			pause = Keyboard.readChar();
+
+			// REFACTOR 1
+			pause = scan.next();
 		}//end battle loop
 
 		if (!theMonster.isAlive()) {

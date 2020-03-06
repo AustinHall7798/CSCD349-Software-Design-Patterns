@@ -1,3 +1,5 @@
+
+
 /**
  * Title:
  * Description:
@@ -22,7 +24,7 @@ public abstract class Monster extends DungeonCharacter {
 	public void heal() {
 		boolean canHeal;
 		int healPoints;
-
+  
 		canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
 
 		if (canHeal) {

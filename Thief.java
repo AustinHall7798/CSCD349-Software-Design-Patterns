@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Title:
  * Description:
@@ -7,8 +9,12 @@
  * @version 1.0
  */
 
+
 public class Thief extends Hero {
-    public Thief() {
+	// REFACTOR 1
+	private Scanner scan = new Scanner(System.in);
+  
+  public Thief() {
 		super("Thief", 75, 6, .8, 20, 40, .5);
     }//end constructor
 
@@ -37,7 +43,8 @@ public class Thief extends Hero {
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Surprise Attack");
 		    System.out.print("Choose an option: ");
-		    choice = Keyboard.readInt();
+		 // REFACTOR 1
+		    choice = scan.nextInt();
 
 		    switch (choice) {
 			    case 1: attack(opponent);
