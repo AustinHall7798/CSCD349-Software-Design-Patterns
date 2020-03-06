@@ -91,7 +91,7 @@ this task
 generateMonster randomly selects a Monster and returns it.  It utilizes
 a polymorphic reference (Monster) to accomplish this task.
 ---------------------------------------------------------------------*/
-	public static Monster generateMonster() {
+	private static Monster generateMonster() {
 		int choice;
 
 		choice = (int)(Math.random() * 3) + 1;
@@ -113,7 +113,7 @@ playAgain allows gets choice from user to play another game.  It returns
 true if the user chooses to continue, false otherwise.
 ---------------------------------------------------------------------*/
 
-	public static boolean playAgain() {
+	private static boolean playAgain() {
 		String again;
 
 		System.out.println("Play again (y/n)?");
@@ -131,7 +131,7 @@ user has the option of quitting.
 ---------------------------------------------------------------------*/
 
 
-	public static void battle(Hero theHero, Monster theMonster) {
+	private static void battle(Hero theHero, Monster theMonster) {
 		// REFACTOR 1
 		String pause = "p";
 

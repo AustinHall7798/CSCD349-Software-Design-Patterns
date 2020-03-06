@@ -1,4 +1,6 @@
+
 import java.util.Scanner;
+
 
 /**
  * Title: Hero.java
@@ -45,7 +47,7 @@ public abstract class Hero extends DungeonCharacter {
 		System.out.print("Enter character name: ");
     
 		// REFACTOR 1
-		name = scan.next();
+		setName(scan.next());
 	}//end readName method
 
 	//defend determines if hero blocks attack
@@ -57,7 +59,7 @@ public abstract class Hero extends DungeonCharacter {
 	//This method overrides the method inherited from DungeonCharacter
 	public void subtractHitPoints(int hitPoints) {
 		if (defend()) {
-			System.out.println(name + " BLOCKED the attack!");
+			System.out.println(getName() + " BLOCKED the attack!");
 		}
 		else {
 			super.subtractHitPoints(hitPoints);
@@ -66,7 +68,7 @@ public abstract class Hero extends DungeonCharacter {
 
 	//battleChoices will be overridden in derived classes.
 	public void battleChoices(DungeonCharacter opponent) {
-	    numTurns = attackSpeed/opponent.getAttackSpeed();
+	    numTurns = getAttackSpeed()/opponent.getAttackSpeed();
 
 		if (numTurns == 0) {
 			numTurns++;

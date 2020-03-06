@@ -10,7 +10,6 @@ public class CrushingBlow implements AttackInterface {
 		attack(opponent);
 	}
 
-	
 	public void attack(DungeonCharacter opponent) {
 			if (Math.random() <= .4) {
 				int blowPoints = (int)(Math.random() * 76) + 100;
