@@ -7,51 +7,39 @@
  * @version 1.0
  */
 
-public class Thief extends Hero
-{
-
-    public Thief()
-	{
+public class Thief extends Hero {
+    public Thief() {
 		super("Thief", 75, 6, .8, 20, 40, .5);
     }//end constructor
 
-	public void surpriseAttack(DungeonCharacter opponent)
-	{
+	public void surpriseAttack(DungeonCharacter opponent) {
 		double surprise = Math.random();
-		if (surprise <= .4)
-		{
+		if (surprise <= .4) {
 			System.out.println("Surprise attack was successful!\n" +
 								name + " gets an additional turn.");
 			numTurns++;
 			attack(opponent);
 		}//end surprise
-		else if (surprise >= .9)
-		{
+		else if (surprise >= .9) {
 			System.out.println("Uh oh! " + opponent.getName() + " saw you and" +
 								" blocked your attack!");
 		}
-		else
+		else {
 		    attack(opponent);
-
-
+		}
 	}//end surpriseAttack method
 
-
-    public void battleChoices(DungeonCharacter opponent)
-	{
+    public void battleChoices(DungeonCharacter opponent) {
 		super.battleChoices(opponent);
 		int choice;
-
-
-		do
-		{
+		
+		do {
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Surprise Attack");
 		    System.out.print("Choose an option: ");
 		    choice = Keyboard.readInt();
 
-		    switch (choice)
-		    {
+		    switch (choice) {
 			    case 1: attack(opponent);
 			        break;
 			    case 2: surpriseAttack(opponent);
@@ -61,10 +49,9 @@ public class Thief extends Hero
 		    }//end switch
 
 			numTurns--;
-			if (numTurns > 0)
+			if (numTurns > 0) {
 			    System.out.println("Number of turns remaining is: " + numTurns);
-
+			}
 		} while(numTurns > 0);
-
     }
 }
