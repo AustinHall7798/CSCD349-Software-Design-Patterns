@@ -1,4 +1,4 @@
-public class MonsterFactory {
+public abstract class MonsterFactory {
 	public static Monster createGremlin() {
 		return new Gremlin();
 	}
