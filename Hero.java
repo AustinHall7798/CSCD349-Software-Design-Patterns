@@ -56,8 +56,7 @@ public abstract class Hero extends DungeonCharacter {
 >>>>>>> Stashed changes
 
 	//defend determines if hero blocks attack
-	public boolean defend()
-	{
+	public boolean defend() {
 		return Math.random() <= chanceToBlock;
 	}//end defend method
 
