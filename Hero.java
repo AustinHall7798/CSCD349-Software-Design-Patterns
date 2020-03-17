@@ -73,7 +73,7 @@ public abstract class Hero extends DungeonCharacter {
 	
 	// Menu option call to print character info and inventory
 	public String toString() {		
-		String heroSheet = String.format("%s's Character Sheet:\nHitPoints: %d\nHealingPotions: %d\nVisionPotions: %d\nPillars of OO Found: %d", super.getName(), super.getHitPoints(), this.getHealingPotionCount(), this.getVisionPotionCount(), this.getPillarsOfOOCount());
+		String heroSheet = String.format("%s's Character Sheet:\nHitPoints: %d\nHealing Potions: %d\nVision Potions: %d\nPillars of OO Found: %d", super.getName(), super.getHitPoints(), this.getHealingPotionCount(), this.getVisionPotionCount(), this.getPillarsOfOOCount());
 		return heroSheet;
 	}
 	
