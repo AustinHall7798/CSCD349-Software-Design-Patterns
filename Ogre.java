@@ -16,6 +16,6 @@ public class Ogre extends Monster {
 
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(getName() + " slowly swings a club toward's " + opponent.getName() + ":");
-		new StandardAttack(this, opponent);
+		AttackFlyweightPool.getAttack("standardattack", this, opponent);
 	}//end override of attack
 }//end Monster class

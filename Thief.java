@@ -15,7 +15,7 @@ public class Thief extends Hero {
 	}// end constructor
 
 	public void surpriseAttack(DungeonCharacter opponent) {
-		new SupriseAttack(this, opponent);
+		AttackFlyweightPool.getAttack("surpriseattacl", this, opponent);
 	}// end surpriseAttack method
 
 	public void battleChoices(DungeonCharacter opponent) {

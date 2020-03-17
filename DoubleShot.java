@@ -1,9 +1,9 @@
 
 public class DoubleShot implements Attack {
-	Hero player;
+	DungeonCharacter player;
 	DungeonCharacter opponent;
 
-	public DoubleShot(Hero player, DungeonCharacter opponent) {
+	public DoubleShot(DungeonCharacter player, DungeonCharacter opponent) {
 		this.player = player;
 		this.opponent = opponent;
 

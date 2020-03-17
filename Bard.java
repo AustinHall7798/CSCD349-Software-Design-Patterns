@@ -18,7 +18,7 @@ public class Bard extends Hero implements Attack{
     }
 
 	public void playMelody(DungeonCharacter opponent) {
-		new PlayMelody(this, opponent);
+		AttackFlyweightPool.getAttack("playmelody", this, opponent);
 	}
 
 	public void attack(DungeonCharacter opponent) {

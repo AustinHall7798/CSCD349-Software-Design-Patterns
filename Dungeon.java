@@ -78,9 +78,10 @@ public class Dungeon {
 	a polymorphic reference (Monster) to accomplish this task.
 	---------------------------------------------------------------------*/
 	private static Monster generateMonster() {
+		final int numMonsters = 5;
 		int choice;
 
-		choice = (int) (Math.random() * 5) + 1;
+		choice = (int) (Math.random() * numMonsters) + 1;
 
 		switch (choice) {
 		case 1:
@@ -142,6 +143,7 @@ public class Dungeon {
 				new StandardAttack(theMonster, theHero);
 
 			// let the player bail out if desired
+			System.out.print("Total ammount of attack objects made: " + AttackFlyweightPool.getTotalAttackObjectsMade());
 			System.out.print("\n-->q to quit, anything else to continue: ");
 
 			pause = scan.next();
