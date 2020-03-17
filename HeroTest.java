@@ -3,10 +3,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class HeroTest {
-
-	//Default Warrior Stats: 
-	// name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax
-	// "Warrior", 125, 4, .8, 35, 60, .2
 	
 	Hero testHero;
 	

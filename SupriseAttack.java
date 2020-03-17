@@ -1,4 +1,3 @@
-
 public class SupriseAttack implements Attack {
 	Hero player;
 	DungeonCharacter opponent;

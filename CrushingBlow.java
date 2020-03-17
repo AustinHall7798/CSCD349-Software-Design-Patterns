@@ -1,4 +1,3 @@
-
 public class CrushingBlow implements Attack {
 	DungeonCharacter player;
 	DungeonCharacter opponent;
@@ -19,7 +18,5 @@ public class CrushingBlow implements Attack {
 			System.out.println(player.getName() + " failed to land a crushing blow");
 			System.out.println();
 		} // blow failed
-
 	}
-
 }
