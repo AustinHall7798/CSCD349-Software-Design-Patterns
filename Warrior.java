@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * Title: Description: Copyright: Copyright (c) 2001 Company:
  * 
@@ -7,13 +5,14 @@ import java.util.Scanner;
  * @version 1.0
  */
 
+import java.util.Scanner;
+
 public class Warrior extends Hero implements Attack {
+	
 	private Scanner scan = new Scanner(System.in);
 
 	public Warrior() {
-
 		super("Warrior", 125, 4, .8, 35, 60, .2);
-
 	}// end constructor
 
 	public void crushingBlow(DungeonCharacter opponent) {

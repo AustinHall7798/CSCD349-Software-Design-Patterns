@@ -10,4 +10,13 @@ public abstract class HeroFactory {
 	public static Hero createThief() {
 		return new Thief();
 	}
+
+	public static Hero createArcher() {
+		return new Archer();
+	}
+
+	public static Hero createBard() {
+		return new Bard();
+	}
+
 }
