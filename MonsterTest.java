@@ -20,7 +20,4 @@ public class MonsterTest {
 		testMonster.heal();
 		assertTrue(testMonster.getHitPoints() >= 200);
 	}
-	
-	
-	
 }
