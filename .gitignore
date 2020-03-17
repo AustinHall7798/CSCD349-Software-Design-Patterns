@@ -20,3 +20,14 @@
 /CrushingBlow.class
 /SupriseAttack.class
 /Attack.class
+/Room.class
+/HealingPotion.class
+/VisionPotion.class
+/Pit.class
+/Pillar.class
+/RoomTests.class
+/DungeonAdventure.class
+/EncapsulationPillar.class
+/AbstractionPillar.class
+/PolymorphismPillar.class
+/InheritancePillar.class
