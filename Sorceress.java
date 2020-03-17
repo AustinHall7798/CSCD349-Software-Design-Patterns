@@ -13,8 +13,16 @@ public class Sorceress extends Hero implements Attack {
 	public final int MIN_ADD = 25;
 	public final int MAX_ADD = 50;
 
+	private final static String name = "Sorceress";
+	private final static int hitPoints = 75;
+	private final static int attackSpeed = 5;
+	private final static double chanceToHit = .7;
+	private final static int damageMin = 25;
+	private final static int damageMax = 50;
+	private final static double chanceToBlock = .3;
+	
 	public Sorceress() {
-		super("Sorceress", 75, 5, .7, 25, 50, .3);
+		super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock);
 	}// end constructor
 
 	public void increaseHitPoints() {

@@ -52,7 +52,7 @@ public class Dungeon {
 	public static Hero chooseHero() {
 		int choice;
 
-		System.out.println("Choose a hero:\n" + "1. Warrior\n" + "2. Sorceress\n" + "3. Thief");
+		System.out.println("Choose a hero:\n" + "1. Warrior\n" + "2. Sorceress\n" + "3. Thief\n" + "4. Archer\n" + "5. Bard");
 
 		choice = scan.nextInt();
 
@@ -63,6 +63,10 @@ public class Dungeon {
 			return HeroFactory.createSorceress();
 		case 3:
 			return HeroFactory.createThief();
+		case 4:
+			return HeroFactory.createArcher();
+		case 5:
+			return HeroFactory.createBard();
 		default:
 			System.out.println("invalid choice, returning Thief");
 			return HeroFactory.createThief();
@@ -74,9 +78,10 @@ public class Dungeon {
 	a polymorphic reference (Monster) to accomplish this task.
 	---------------------------------------------------------------------*/
 	private static Monster generateMonster() {
+		final int numMonsters = 5;
 		int choice;
 
-		choice = (int) (Math.random() * 3) + 1;
+		choice = (int) (Math.random() * numMonsters) + 1;
 
 		switch (choice) {
 		case 1:
@@ -87,6 +92,12 @@ public class Dungeon {
 
 		case 3:
 			return MonsterFactory.createSkeleton();
+			
+		case 4:
+			return MonsterFactory.createGiantSpider();
+			
+		case 5:
+			return MonsterFactory.createGolem();
 
 		default:
 			System.out.println("invalid choice, returning Skeleton");
@@ -129,9 +140,11 @@ public class Dungeon {
 
 			// monster's turn (provided it's still alive!)
 			if (theMonster.isAlive())
-				new StandardAttack(theMonster, theHero);
+				theMonster.attack(theHero);
+
 
 			// let the player bail out if desired
+			System.out.print("Total ammount of attack objects made: " + AttackFlyweightPool.getTotalAttackObjectsMade());
 			System.out.print("\n-->q to quit, anything else to continue: ");
 
 			pause = scan.next();
