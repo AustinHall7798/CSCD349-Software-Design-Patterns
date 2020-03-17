@@ -1,10 +1,3 @@
-/**
- * Title: Description: Copyright: Copyright (c) 2001 Company:
- * 
- * @author
- * @version 1.0
- */
-
 import java.util.Scanner;
 
 public class Warrior extends Hero implements Attack {
@@ -13,7 +6,7 @@ public class Warrior extends Hero implements Attack {
 
 	public Warrior() {
 		super("Warrior", 125, 4, .8, 35, 60, .2);
-	}// end constructor
+	}
 
 	public void crushingBlow(DungeonCharacter opponent) {
 		new CrushingBlow(this, opponent);
