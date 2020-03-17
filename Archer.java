@@ -28,7 +28,7 @@ public class Archer extends Hero implements Attack
 
 
   	public void DoubleShot(DungeonCharacter opponent) {
-		AttackFlyweightPool.getAttack("doubleshot", this, opponent);
+		AttackFlyweightPool.getAttack(AttackName.DOUBLESHOT, this, opponent);
 	}
 	
 
@@ -36,7 +36,7 @@ public class Archer extends Hero implements Attack
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(getName() + " fires his bow at " +
 							opponent.getName() + ":");
-		AttackFlyweightPool.getAttack("standardattack", this, opponent);
+		AttackFlyweightPool.getAttack(AttackName.STANDARD, this, opponent);
 	}
 
     public void battleChoices(DungeonCharacter opponent) {

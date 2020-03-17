@@ -23,12 +23,12 @@ public class Thief extends Hero {
 	}// end constructor
 
 	public void surpriseAttack(DungeonCharacter opponent) {
-		AttackFlyweightPool.getAttack("surpriseattack", this, opponent);
+		AttackFlyweightPool.getAttack(AttackName.SURPRISEATTACK, this, opponent);
 	}// end surpriseAttack method
 	
 	@Override
 	public void attack(DungeonCharacter opponent) {
-		AttackFlyweightPool.getAttack("standardattack", this, opponent);
+		AttackFlyweightPool.getAttack(AttackName.STANDARD, this, opponent);
 	}
 
 	public void battleChoices(DungeonCharacter opponent) {

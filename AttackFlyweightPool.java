@@ -2,36 +2,36 @@ import java.util.HashMap;
 
 public class AttackFlyweightPool {
 	
-	private final static HashMap<String, Attack> attackMap = new HashMap<String, Attack>();
+	private final static HashMap<AttackName, Attack> attackMap = new HashMap<AttackName, Attack>();
 
-	public static Attack getAttack(String attackName, DungeonCharacter self, DungeonCharacter opponent)
+	public static Attack getAttack(AttackName name, DungeonCharacter self, DungeonCharacter opponent)
 	{
-		if(attackName.equalsIgnoreCase("standardattack"))
+		if(name == AttackName.STANDARD)
 		{
-			attackMap.putIfAbsent(attackName.toLowerCase(), new StandardAttack(self, opponent));
+			attackMap.putIfAbsent(name, new StandardAttack(self, opponent));
 		}
-		else if(attackName.equalsIgnoreCase("crushingblow"))
+		else if(name == AttackName.CRUSHINGBLOW)
 		{
-			attackMap.putIfAbsent(attackName.toLowerCase(), new CrushingBlow(self, opponent));
+			attackMap.putIfAbsent(name, new CrushingBlow(self, opponent));
 		}
-		else if(attackName.equalsIgnoreCase("doubleshot"))
+		else if(name == AttackName.DOUBLESHOT)
 		{
-			attackMap.putIfAbsent(attackName.toLowerCase(), new DoubleShot(self, opponent));
+			attackMap.putIfAbsent(name, new DoubleShot(self, opponent));
 		}
-		else if(attackName.equalsIgnoreCase("playmelody"))
+		else if(name == AttackName.PLAYMELODY)
 		{
-			attackMap.putIfAbsent(attackName.toLowerCase(), new PlayMelody(self, opponent));
+			attackMap.putIfAbsent(name, new PlayMelody(self, opponent));
 		}
-		else if(attackName.equalsIgnoreCase("surpriseattack"))
+		else if(name == AttackName.SURPRISEATTACK)
 		{
-			attackMap.putIfAbsent(attackName.toLowerCase(), new SurpriseAttack(self, opponent));
+			attackMap.putIfAbsent(name, new SurpriseAttack(self, opponent));
 		}
 		else
 		{
 			System.out.println(self.getName() + ": ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR");
 		}
 		
-		 Attack attackF = attackMap.get(attackName);
+		 Attack attackF = attackMap.get(name);
 		 
 		 return attackF;
 	}
@@ -40,7 +40,9 @@ public class AttackFlyweightPool {
 	{
 		return attackMap.size();
 	}
-
+	
 }
+
+
 
 

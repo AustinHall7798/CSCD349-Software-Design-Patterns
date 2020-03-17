@@ -24,12 +24,12 @@ public class Warrior extends Hero implements Attack {
 	}// end constructor
 
 	public void crushingBlow(DungeonCharacter opponent) {
-		AttackFlyweightPool.getAttack("crushingBlow", this, opponent);
+		AttackFlyweightPool.getAttack(AttackName.CRUSHINGBLOW, this, opponent);
 	}// end crushingBlow method
 
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(getName() + " swings a mighty sword at " + opponent.getName() + ":");
-		AttackFlyweightPool.getAttack("standardattack", this, opponent);
+		AttackFlyweightPool.getAttack(AttackName.STANDARD, this, opponent);
 	}// end override of attack method
 
 	public void battleChoices(DungeonCharacter opponent) {
