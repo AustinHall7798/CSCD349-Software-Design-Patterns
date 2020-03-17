@@ -4,18 +4,26 @@ import java.util.Scanner;
 public class Archer extends Hero implements Attack {
 	
 	private Scanner scan = new Scanner(System.in);
-
+	private final static String name = "Archer";
+	private final static int hitPoints = 75;
+	private final static int attackSpeed = 10;
+	private final static double chanceToHit = .95;
+	private final static int damageMin = 20;
+	private final static int damageMax = 45;
+	private final static double chanceToBlock = .15;
+	
     public Archer() {
-    	super("Archer", 75, 10, .95, 20, 45, .15);
+    	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock);
     }
 
   	public void DoubleShot(DungeonCharacter opponent) {
-		new DoubleShot(this, opponent);
-	}// end DoubleShot method
+		AttackFlyweightPool.getAttack(AttackName.DOUBLESHOT, this, opponent);
+	}
 	
 	public void attack(DungeonCharacter opponent) {
-		System.out.println(getName() + " fires his bow at " + opponent.getName() + ":");
-		new StandardAttack(this, opponent);
+		System.out.println(getName() + " fires his bow at " +
+							opponent.getName() + ":");
+		AttackFlyweightPool.getAttack(AttackName.STANDARD, this, opponent);
 	}
 
     public void battleChoices(DungeonCharacter opponent) {

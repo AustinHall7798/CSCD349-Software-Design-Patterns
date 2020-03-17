@@ -1,8 +1,8 @@
 public class PlayMelody implements Attack {
-	Hero player;
+	DungeonCharacter player;
 	DungeonCharacter opponent;
 
-	public PlayMelody(Hero player, DungeonCharacter opponent) {
+	public PlayMelody(DungeonCharacter player, DungeonCharacter opponent) {
 		this.player = player;
 		this.opponent = opponent;
 
@@ -15,7 +15,7 @@ public class PlayMelody implements Attack {
 
 	@Override
 	public void attack(DungeonCharacter opponent) {
-		new StandardAttack(player, opponent);
+
 	}
 
 }

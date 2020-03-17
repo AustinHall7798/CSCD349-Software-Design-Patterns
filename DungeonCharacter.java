@@ -76,7 +76,7 @@ public abstract class DungeonCharacter implements Attack {
 	}// end isAlive method
 
 	private void printDamageTaken(int hitPoints) {
-		System.out.println(getName() + " hit " + " for <" + hitPoints + "> points damage.");
+		System.out.println(getName() + " hit " + "for <" + hitPoints + "> points damage.");
 	}
 
 	private void printRemainingHealth() {

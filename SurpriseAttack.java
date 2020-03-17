@@ -1,9 +1,10 @@
-public class SupriseAttack implements Attack {
+public class SurpriseAttack implements Attack {
+
 	Hero player;
 	DungeonCharacter opponent;
 
-	public SupriseAttack(Hero player, DungeonCharacter opponent) {
-		this.player = player;
+	public SurpriseAttack(DungeonCharacter player, DungeonCharacter opponent) {
+		this.player = (Hero) player;
 		this.opponent = opponent;
 
 		supriseAttack(opponent);

@@ -3,18 +3,26 @@ import java.util.Scanner;
 public class Warrior extends Hero implements Attack {
 	
 	private Scanner scan = new Scanner(System.in);
+	
+	private final static String name = "Warrior";
+	private final static int hitPoints = 125;
+	private final static int attackSpeed = 4;
+	private final static double chanceToHit = .8;
+	private final static int damageMin = 35;
+	private final static int damageMax = 60;
+	private final static double chanceToBlock = .2;
 
 	public Warrior() {
-		super("Warrior", 125, 4, .8, 35, 60, .2);
-	}
+		super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock);
+	}// end constructor
 
 	public void crushingBlow(DungeonCharacter opponent) {
-		new CrushingBlow(this, opponent);
+		AttackFlyweightPool.getAttack(AttackName.CRUSHINGBLOW, this, opponent);
 	}// end crushingBlow method
 
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(getName() + " swings a mighty sword at " + opponent.getName() + ":");
-		new StandardAttack(this, opponent);
+		AttackFlyweightPool.getAttack(AttackName.STANDARD, this, opponent);
 	}// end override of attack method
 
 	public void battleChoices(DungeonCharacter opponent) {
