@@ -8,7 +8,7 @@ public class AttackFlyweightPool {
 	{
 		if(attackName.equalsIgnoreCase("standardattack"))
 		{
-			attackMap.put(attackName.toLowerCase(), new StandardAttack(self, opponent));
+			attackMap.putIfAbsent(attackName.toLowerCase(), new StandardAttack(self, opponent));
 		}
 		else if(attackName.equalsIgnoreCase("crushingblow"))
 		{

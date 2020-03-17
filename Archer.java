@@ -14,9 +14,16 @@ public class Archer extends Hero implements Attack
 {
 	
 	private Scanner scan = new Scanner(System.in);
-
+	private final static String name = "Archer";
+	private final static int hitPoints = 75;
+	private final static int attackSpeed = 10;
+	private final static double chanceToHit = .95;
+	private final static int damageMin = 20;
+	private final static int damageMax = 45;
+	private final static double chanceToBlock = .15;
+	
     public Archer() {
-    	super("Archer", 75, 10, .95, 20, 45, .15);
+    	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock);
     }
 
 

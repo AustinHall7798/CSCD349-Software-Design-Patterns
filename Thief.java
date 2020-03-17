@@ -9,9 +9,17 @@ import java.util.Scanner;
 
 public class Thief extends Hero {
 	private Scanner scan = new Scanner(System.in);
+	
+	private final static String name = "Thief";
+	private final static int hitPoints = 75;
+	private final static int attackSpeed = 6;
+	private final static double chanceToHit = .8;
+	private final static int damageMin = 20;
+	private final static int damageMax = 40;
+	private final static double chanceToBlock = .5;
 
 	public Thief() {
-		super("Thief", 75, 6, .8, 20, 40, .5);
+		super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock);
 	}// end constructor
 
 	public void surpriseAttack(DungeonCharacter opponent) {

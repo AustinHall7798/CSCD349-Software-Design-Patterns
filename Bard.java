@@ -12,9 +12,17 @@ import java.util.Scanner;
 public class Bard extends Hero implements Attack{
 	
 	private Scanner scan = new Scanner(System.in);
+	
+	private final static String name = "Bard";
+	private final static int hitPoints = 100;
+	private final static int attackSpeed = 5;
+	private final static double chanceToHit = .6;
+	private final static int damageMin = 5;
+	private final static int damageMax = 20;
+	private final static double chanceToBlock = .15;
 
     public Bard() {
-    	super("Bard", 100, 5, .6, 5, 20, .15);
+    	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock);
     }
 
 	public void playMelody(DungeonCharacter opponent) {

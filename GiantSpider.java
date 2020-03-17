@@ -8,8 +8,19 @@
  */
 
 public class GiantSpider extends Monster {
+	
+	private final static String name = "Fluffy the giant spider";
+	private final static int hitPoints = 35;
+	private final static int attackSpeed = 10;
+	private final static double chanceToHit = 1;
+	private final static double chanceToHeal = .2;
+	private final static int damageMin = 5;
+	private final static int damageMax = 10;
+	private final static int minHeal = 10;
+	private final static int maxHeal = 25;
+	
     public GiantSpider() {
-		super("Fluffy the Giant Spider", 35, 10, 1, .2, 5, 20, 10, 25);
+		super(name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal);
 		
     }//end constructor
 
