@@ -25,8 +25,6 @@
  */
 
 public abstract class DungeonCharacter implements Attack {
-
-	// changed all of these from protected to private
 	private String name;
 	private int hitPoints;
 	private int attackSpeed;
@@ -34,7 +32,6 @@ public abstract class DungeonCharacter implements Attack {
 	private int damageMin, damageMax;
 
 	public DungeonCharacter(String name, int hitPoints, int attackSpeed, double chanceToHit, int damageMin, int damageMax) {
-
 		this.name = name;
 		this.hitPoints = hitPoints;
 		this.attackSpeed = attackSpeed;
