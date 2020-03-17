@@ -1,10 +1,3 @@
-/**
- * Title: Description: Copyright: Copyright (c) 2001 Company:
- * 
- * @author
- * @version 1.0
- */
-
 import java.util.Scanner;
 
 public class Warrior extends Hero implements Attack {

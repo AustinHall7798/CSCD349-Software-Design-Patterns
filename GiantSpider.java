@@ -1,12 +1,3 @@
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
 public class GiantSpider extends Monster {
 	
 	private final static String name = "Fluffy the giant spider";
@@ -21,8 +12,7 @@ public class GiantSpider extends Monster {
 	
     public GiantSpider() {
 		super(name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal);
-		
-    }//end constructor
+    }
 
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(getName() + " bites at " + opponent.getName() + ":");

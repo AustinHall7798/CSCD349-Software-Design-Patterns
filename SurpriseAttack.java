@@ -1,5 +1,5 @@
-
 public class SurpriseAttack implements Attack {
+
 	Hero player;
 	DungeonCharacter opponent;
 

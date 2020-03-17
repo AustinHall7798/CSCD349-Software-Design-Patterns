@@ -1,15 +1,6 @@
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
 import java.util.Scanner;
 
-public class Bard extends Hero implements Attack{
+public class Bard extends Hero implements Attack {
 	
 	private Scanner scan = new Scanner(System.in);
 	
@@ -30,8 +21,7 @@ public class Bard extends Hero implements Attack{
 	}
 
 	public void attack(DungeonCharacter opponent) {
-		System.out.println(getName() + " launches his instrument at " +
-							opponent.getName() + ":");
+		System.out.println(getName() + " launches his instrument at " + opponent.getName() + ":");
 		AttackFlyweightPool.getAttack(AttackName.PLAYMELODY, this, opponent);
 	}
 
@@ -40,16 +30,14 @@ public class Bard extends Hero implements Attack{
 
 		super.battleChoices(opponent);
 
-		do
-		{
+		do {
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Play Melody");
 		    System.out.print("Choose an option: ");
 		 
 		    choice = scan.nextInt();
 
-		    switch (choice)
-		    {
+		    switch (choice) {
 			    case 1: attack(opponent);
 			        break;
 			    case 2: playMelody(opponent);
@@ -59,11 +47,10 @@ public class Bard extends Hero implements Attack{
 		    }
 
 			numTurns--;
-			if (numTurns > 0)
+			if (numTurns > 0) {
 			    System.out.println("Number of turns remaining is: " + numTurns);
+			}
 
 		} while(numTurns > 0);
-
     }
-
 }

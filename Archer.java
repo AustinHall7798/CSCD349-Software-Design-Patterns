@@ -1,17 +1,7 @@
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
-
 import java.util.Scanner;
 
 
-public class Archer extends Hero implements Attack
-{
+public class Archer extends Hero implements Attack {
 	
 	private Scanner scan = new Scanner(System.in);
 	private final static String name = "Archer";
@@ -26,13 +16,10 @@ public class Archer extends Hero implements Attack
     	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock);
     }
 
-
   	public void DoubleShot(DungeonCharacter opponent) {
 		AttackFlyweightPool.getAttack(AttackName.DOUBLESHOT, this, opponent);
 	}
 	
-
-
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(getName() + " fires his bow at " +
 							opponent.getName() + ":");
@@ -44,16 +31,14 @@ public class Archer extends Hero implements Attack
 
 		super.battleChoices(opponent);
 
-		do
-		{
+		do {
 		    System.out.println("1. Attack Opponent");
-		    System.out.println("2. Double Shot");
+		    System.out.println("2. Use Double Shot");
 		    System.out.print("Choose an option: ");
 		 
 		    choice = scan.nextInt();
 
-		    switch (choice)
-		    {
+		    switch (choice) {
 			    case 1: attack(opponent);
 			        break;
 			    case 2: DoubleShot(opponent);
@@ -63,11 +48,9 @@ public class Archer extends Hero implements Attack
 		    }
 
 			numTurns--;
-			if (numTurns > 0)
+			if (numTurns > 0) {
 			    System.out.println("Number of turns remaining is: " + numTurns);
-
+			}
 		} while(numTurns > 0);
-
     }
-
 }

@@ -1,4 +1,3 @@
-
 public class PlayMelody implements Attack {
 	DungeonCharacter player;
 	DungeonCharacter opponent;
@@ -12,7 +11,7 @@ public class PlayMelody implements Attack {
 
 	 public void playMelody(DungeonCharacter opponent) {
 		 System.out.println(player.getName() + " plays a sultry melody for " + opponent.getName() + ":");
-		}
+	}
 
 	@Override
 	public void attack(DungeonCharacter opponent) {

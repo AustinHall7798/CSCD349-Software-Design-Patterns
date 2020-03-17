@@ -1,4 +1,3 @@
-
 public class StandardAttack implements Attack {
 	DungeonCharacter self;
 	DungeonCharacter opponent;

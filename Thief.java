@@ -1,12 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Title: Description: Copyright: Copyright (c) 2001 Company:
- * 
- * @author
- * @version 1.0
- */
-
 public class Thief extends Hero {
 	private Scanner scan = new Scanner(System.in);
 	
@@ -30,7 +23,7 @@ public class Thief extends Hero {
 	public void attack(DungeonCharacter opponent) {
 		AttackFlyweightPool.getAttack(AttackName.STANDARD, this, opponent);
 	}
-
+	
 	public void battleChoices(DungeonCharacter opponent) {
 		super.battleChoices(opponent);
 		int choice;
@@ -59,6 +52,4 @@ public class Thief extends Hero {
 			}
 		} while (numTurns > 0);
 	}
-
-
 }
