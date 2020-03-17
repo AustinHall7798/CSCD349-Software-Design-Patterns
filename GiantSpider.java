@@ -14,8 +14,7 @@ public class GiantSpider extends Monster {
     }//end constructor
 
 	public void attack(DungeonCharacter opponent) {
-		System.out.println(getName() + " bites at " +
-							opponent.getName() + ":");
+		System.out.println(getName() + " bites at " + opponent.getName() + ":");
 		AttackFlyweightPool.getAttack("standardattack", this, opponent);
 	}
 }

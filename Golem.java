@@ -14,8 +14,7 @@ public class Golem extends Monster {
     }//end constructor
 
 	public void attack(DungeonCharacter opponent) {
-		System.out.println(getName() + " swings at " +
-							opponent.getName() + ":");
+		System.out.println(getName() + " swings at " + opponent.getName() + ":");
 		AttackFlyweightPool.getAttack("standardattack", this, opponent);
 	}
 }

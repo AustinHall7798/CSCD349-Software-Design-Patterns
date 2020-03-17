@@ -140,7 +140,8 @@ public class Dungeon {
 
 			// monster's turn (provided it's still alive!)
 			if (theMonster.isAlive())
-				new StandardAttack(theMonster, theHero);
+				theMonster.attack(theHero);
+
 
 			// let the player bail out if desired
 			System.out.print("Total ammount of attack objects made: " + AttackFlyweightPool.getTotalAttackObjectsMade());

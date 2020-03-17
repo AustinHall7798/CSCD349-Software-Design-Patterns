@@ -15,8 +15,13 @@ public class Thief extends Hero {
 	}// end constructor
 
 	public void surpriseAttack(DungeonCharacter opponent) {
-		AttackFlyweightPool.getAttack("surpriseattacl", this, opponent);
+		AttackFlyweightPool.getAttack("surpriseattack", this, opponent);
 	}// end surpriseAttack method
+	
+	@Override
+	public void attack(DungeonCharacter opponent) {
+		AttackFlyweightPool.getAttack("standardattack", this, opponent);
+	}
 
 	public void battleChoices(DungeonCharacter opponent) {
 		super.battleChoices(opponent);
@@ -47,8 +52,5 @@ public class Thief extends Hero {
 		} while (numTurns > 0);
 	}
 
-	@Override
-	public void attack(DungeonCharacter opponent) {
-		new StandardAttack(this, opponent);
-	}
+
 }

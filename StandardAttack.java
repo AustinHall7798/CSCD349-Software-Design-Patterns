@@ -17,7 +17,6 @@ public class StandardAttack implements Attack {
 		canAttack = Math.random() <= self.getChanceToHit();
 
 		if (canAttack) {
-			//System.out.println(this.self.getName() + " ATTACKS " + this.opponent.getName());
 			damage = (int) (Math.random() * (self.getDamageMax() - self.getDamageMin() + 1)) + self.getDamageMin();
 			opponent.subtractHitPoints(damage);
 			

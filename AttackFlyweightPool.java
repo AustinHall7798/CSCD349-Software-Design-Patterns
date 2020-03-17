@@ -3,13 +3,12 @@ import java.util.HashMap;
 public class AttackFlyweightPool {
 	
 	private final static HashMap<String, Attack> attackMap = new HashMap<String, Attack>();
-	
-	
+
 	public static Attack getAttack(String attackName, DungeonCharacter self, DungeonCharacter opponent)
 	{
 		if(attackName.equalsIgnoreCase("standardattack"))
 		{
-			attackMap.putIfAbsent(attackName.toLowerCase(), new StandardAttack(self, opponent));
+			attackMap.put(attackName.toLowerCase(), new StandardAttack(self, opponent));
 		}
 		else if(attackName.equalsIgnoreCase("crushingblow"))
 		{

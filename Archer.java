@@ -29,7 +29,7 @@ public class Archer extends Hero implements Attack
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(getName() + " fires his bow at " +
 							opponent.getName() + ":");
-		AttackFlyweightPool.getAttack("doubleshot", this, opponent);
+		AttackFlyweightPool.getAttack("standardattack", this, opponent);
 	}
 
     public void battleChoices(DungeonCharacter opponent) {
