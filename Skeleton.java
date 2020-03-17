@@ -21,7 +21,6 @@ public class Skeleton extends Monster {
 	private final static int minHeal = 30;
 	private final static int maxHeal = 50;
 
-	
     public Skeleton() {
     	super(name, hitPoints, attackSpeed, chanceToHit, chanceToHeal, damageMin, damageMax, minHeal, maxHeal);
     }//end constructor
