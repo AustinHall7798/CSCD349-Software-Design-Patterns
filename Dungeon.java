@@ -14,12 +14,16 @@ public class Dungeon {
 	private int y = 0;
 	private Random rand = new Random();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	private HealingPotion healPotion;
 	private String[] lines;
 	private String bigString = "";
 >>>>>>> master
 	
+=======
+  
+>>>>>>> 3ac04941c5f8f53c5e227dbef93805099b69fa79
 	public Dungeon(Hero player) {
 		this.player = player;
 		this.pit = new Pit(player);
@@ -114,6 +118,10 @@ public class Dungeon {
 			System.out.println("You found a healing potion! Added it to your inventory");
 			player.addHealingPotion();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ac04941c5f8f53c5e227dbef93805099b69fa79
 			healingPotionCount--;
 		}
 		if(getCurrentRoom().getVisionPotionCount() > 0) {
@@ -129,6 +137,7 @@ public class Dungeon {
 			pit.fallInPit();
 			System.out.println(player.getName() + " fell into a pit and took " + pit.getDamage() + " points of damage");
 			pitCount--;
+<<<<<<< HEAD
 =======
 			getCurrentRoom().setHealingPotionCount(0);;
 		}
@@ -147,6 +156,8 @@ public class Dungeon {
 			getCurrentRoom().setPitCount(0);
 			System.out.println("Player fell into a pit and took " + pit.getDamage() + " points of damage");
 >>>>>>> master
+=======
+>>>>>>> 3ac04941c5f8f53c5e227dbef93805099b69fa79
 		}
 		if(getCurrentRoom().getMonsterCount() > 0) {
 			getCurrentRoom().setMonsterCount(0);
