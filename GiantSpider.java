@@ -2,7 +2,7 @@ public class GiantSpider extends Monster {
 	
 	private final static String name = "Fluffy the giant spider";
 	private final static int hitPoints = 35;
-	private final static int attackSpeed = 10;
+	private final static int attackSpeed = 20;
 	private final static double chanceToHit = 1;
 	private final static double chanceToHeal = .2;
 	private final static int damageMin = 5;
