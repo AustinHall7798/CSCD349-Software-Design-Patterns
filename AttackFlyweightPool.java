@@ -15,15 +15,8 @@ public class AttackFlyweightPool {
 			attackMap.putIfAbsent(name, new PlayMelody(self, opponent));
 		} else if(name == AttackName.SURPRISEATTACK) {
 			attackMap.putIfAbsent(name, new SurpriseAttack(self, opponent));
-<<<<<<< HEAD
 		} else {
-			System.out.println(self.getName() + ": ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR");
-=======
-		}
-		else
-		{
 			attackMap.putIfAbsent(AttackName.STANDARD, new StandardAttack(self, opponent));
->>>>>>> master
 		}
 		
 		 Attack attackF = attackMap.get(name);
