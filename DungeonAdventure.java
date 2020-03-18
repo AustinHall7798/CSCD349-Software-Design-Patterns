@@ -104,7 +104,7 @@ public class DungeonAdventure {
 				executePlayerChoice(dungeon);
 			}
 			
-			// TODO print entire dungeon
+			dungeon.printDungeon();
 			
 		} while (playAgain());
 	}// end main method
@@ -163,7 +163,7 @@ public class DungeonAdventure {
 		System.out.println("Your Choice: ");
 		
 		int playerChoice = 0;
-		while(playerChoice <= 0 || playerChoice >= 7 && playerChoice != 99) {
+		while(playerChoice <= 0 || playerChoice >= 9 && playerChoice != 99) {
 			try {
 				playerChoice = scan.nextInt();
 				scan.nextLine();
@@ -192,7 +192,7 @@ public class DungeonAdventure {
 			System.out.println("GoodBye...");
 			System.exit(0);
 		}else if(playerChoice == 99) {
-			// TODO Hidden menu option: print whole dungeon
+			dungeon.printDungeon();
 		}else {
 			System.out.println("Unexpected Error. Closing.");
 			System.exit(0);
