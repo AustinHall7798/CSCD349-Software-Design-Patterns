@@ -61,6 +61,10 @@ public class Room {
 	public int getHealingPotionCount() {
 		return healingPotionCount;
 	}
+	
+	public String getCurrentObject() {
+		return currentObject;
+	}
 
 	public void setHealingPotionCount(int healingPotionCount) {
 		this.healingPotionCount = healingPotionCount;
