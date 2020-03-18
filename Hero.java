@@ -45,13 +45,13 @@ public abstract class Hero extends DungeonCharacter {
 
 		System.out.println("Number of turns this round is: " + numTurns);
 	}//end battleChoices
-	
+  
 	// Menu option call to print character info and inventory
 	public String toString() {		
 		String heroSheet = String.format("%s's Character Sheet:\nHitPoints: %d\nHealing Potions: %d\nVision Potions: %d\nPillars of OO Found: %d", super.getName(), super.getHitPoints(), this.getHealingPotionCount(), this.getVisionPotionCount(), this.getPillarsOfOOCount());
 		return heroSheet;
 	}
-	
+  
 	public int getHealingPotionCount() {
 		return this.healingPotionCount;
 	}
@@ -71,16 +71,16 @@ public abstract class Hero extends DungeonCharacter {
 	public void addVisionPotion() {
 		visionPotionCount++;
 	}
-	
+  
 	// Removes a healing potion from the Hero and increases hero's health
 	public void drinkHealingPotion() {
 		if(healingPotionCount > 0) {
 			int minPotionRestore = 5;
 			int maxPotionRestore = 15;
-			
+
 			int restoredHitPoints = (int)(Math.random() * (maxPotionRestore - minPotionRestore)) + minPotionRestore;
 			super.addHitPoints(restoredHitPoints);
-			
+      
 			healingPotionCount--;
 		} else if(healingPotionCount == 0) {
 			System.out.println("You don't have any Healing Potions");
@@ -88,7 +88,7 @@ public abstract class Hero extends DungeonCharacter {
 			System.out.println("Unexpected negative number.");
 		}
 	}
-	
+  
 	public void drinkVisionPotion() {
 		if(visionPotionCount > 0) {
 			visionPotionCount--;
@@ -98,9 +98,8 @@ public abstract class Hero extends DungeonCharacter {
 			System.out.println("Unexpected negative number.");
 		}
 	}
-	
+  
 	public void addPillarOfOO() {
 		pillarsOfOOCount++;
 	}
 }// end Hero class
-
