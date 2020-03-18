@@ -28,7 +28,7 @@ public class AttackFlyweightPool {
 		}
 		else
 		{
-			System.out.println(self.getName() + ": ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR");
+			attackMap.putIfAbsent(AttackName.STANDARD, new StandardAttack(self, opponent));
 		}
 		
 		 Attack attackF = attackMap.get(name);
