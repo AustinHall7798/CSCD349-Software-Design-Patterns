@@ -10,4 +10,12 @@ public abstract class MonsterFactory {
 	public static Monster createSkeleton() {
 		return new Skeleton();
 	}
+
+	public static Monster createGiantSpider() {
+		return new GiantSpider();
+	}
+
+	public static Monster createGolem() {
+		return new Golem();
+	}
 }
