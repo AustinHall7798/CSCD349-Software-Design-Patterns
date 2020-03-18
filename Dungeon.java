@@ -111,27 +111,32 @@ public class Dungeon {
 			System.out.println("You found a healing potion! Added it to your inventory");
 			player.addHealingPotion();
 			healingPotionCount--;
+			getCurrentRoom().setHealingPotionCount(0);
 		}
 		if(getCurrentRoom().getVisionPotionCount() > 0) {
 			System.out.println("You found a vision potion. Added it to your inventory");
 			player.addVisionPotion(this);
 			visionPotionCount--;
+			getCurrentRoom().setVisionPotionCount(0);
 		}
 		if(getCurrentRoom().getPillarCount() > 0) {
 			System.out.println(player.getName() + " found the " + getCurrentRoom().getPillar().getType() + " pillar!");
 			player.addPillarOfOO(getCurrentRoom().getPillar());
 			pillarCount--;
+			getCurrentRoom().setPillarCount(0);
 		}
 		if(getCurrentRoom().getPitCount() > 0) {
 			pit.fallInPit();
 			System.out.println(player.getName() + " fell into a pit and took " + pit.getDamage() + " points of damage");
 			pitCount--;
 			getCurrentRoom().setHealingPotionCount(0);;
+			getCurrentRoom().setPitCount(0);
 		}
 		if(getCurrentRoom().getMonsterCount() > 0) {
 			getCurrentRoom().setMonsterCount(0);
 			DungeonAdventure.battle(player);
 			monsterCount--;
+			getCurrentRoom().setMonsterCount(0);
 		}
 		if(getCurrentRoom().getHealingPotionCount() == 0 && getCurrentRoom().getVisionPotionCount() == 0 && getCurrentRoom().getPillarCount() == 0 && getCurrentRoom().getPitCount() ==  0 && getCurrentRoom().getMonsterCount() == 0) {
 			System.out.println("The room is quiet and empty. You find nothing. Keep exploring.");
