@@ -43,7 +43,7 @@ class RoomTests {
 	@Test
 	void testRoom() {
 		
-		
+		dun.printDungeon();
 		System.out.println(dun.getCurrentRoom().toString());
 		dun.moveSouth();
 		System.out.println(dun.getCurrentRoom().toString());
