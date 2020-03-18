@@ -1,2 +1,0 @@
-package dungeon;
-public enum AttackName {STANDARD, CRUSHINGBLOW, DOUBLESHOT, PLAYMELODY, SURPRISEATTACK; }
