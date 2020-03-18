@@ -115,6 +115,10 @@ public class DungeonAdventure {
 	user has the option of quitting.
 	---------------------------------------------------------------------*/
 
+	public static void battle(Hero theHero) {
+		battle(theHero, generateMonster());
+	}
+	
 	private static void battle(Hero theHero, Monster theMonster) {
 		String pause = "p";
 

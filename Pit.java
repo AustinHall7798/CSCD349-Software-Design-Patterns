@@ -7,11 +7,14 @@ public class Pit {
 	
 	public Pit(DungeonCharacter pitTarget) {
 		this.pitTarget = pitTarget;
-		generatePitDamage();
-		this.pitTarget.subtractHitPoints(damageAmount);;
 	}
 	
 	private void generatePitDamage() {
 		damageAmount = (int) rand.nextInt(19) + 1;
+	}
+	
+	public void fallInPit() {
+		generatePitDamage();
+		this.pitTarget.subtractHitPoints(damageAmount);
 	}
 }

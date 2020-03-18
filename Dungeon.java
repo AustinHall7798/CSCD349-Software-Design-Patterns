@@ -7,14 +7,18 @@ public class Dungeon {
 	private int pillarCount;
 	private int monsterCount;
 	private Hero player;
+	private Pit pit;
 	private Room[][] roomArray = new Room[5][5];
 	private Room entrance = roomArray[0][0];
 	private int x = 0;
 	private int y = 0;
 	private Random rand = new Random();
+	private HealingPotion healPotion;
 	
 	public Dungeon(Hero player) {
 		this.player = player;
+		this.pit = new Pit(player);
+		this.healPotion = new HealingPotion(player);
 		createDungeon();
 	}
 	
@@ -88,6 +92,24 @@ public class Dungeon {
 			System.out.println("Not able to move east");
 		} else {
 			this.y += 1;
+		}
+	}
+	
+	public void checkRoom() {
+		if(getCurrentRoom().getHealingPotionCount() > 0) {
+			player.addHealingPotion();
+		}
+		if(getCurrentRoom().getVisionPotionCount() > 0) {
+			player.addVisionPotion();
+		}
+		if(getCurrentRoom().getPillarCount() > 0) {
+			player.addPillarOfOO();
+		}
+		if(getCurrentRoom().getPitCount() > 0) {
+			pit.fallInPit();
+		}
+		if(getCurrentRoom().getMonsterCount() > 0) {
+			DungeonAdventure.battle(player);
 		}
 	}
 	
