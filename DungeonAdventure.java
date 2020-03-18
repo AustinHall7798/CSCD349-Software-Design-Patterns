@@ -124,11 +124,20 @@ public class DungeonAdventure {
 	this task
 	---------------------------------------------------------------------*/
 	public static Hero chooseHero() {
-		int choice;
+		int choice = 0;
 
-		System.out.println("Choose a hero:\n" + "1. Warrior\n" + "2. Sorceress\n" + "3. Thief");
+		System.out.println("Choose a hero:\n" + "1. Warrior\n" + "2. Sorceress\n" + "3. Thief\n" + "4. Archer\n" + "5. Bard");
 
-		choice = scan.nextInt();
+		while(choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5) {
+			try {
+				choice = scan.nextInt();
+				scan.nextLine();
+			} catch(Exception e) {
+				System.out.println("Invalid Input. Try again.");
+				choice = 0;
+				scan.nextLine();
+			}
+		}
 
 		switch (choice) {
 		case 1:
@@ -137,6 +146,10 @@ public class DungeonAdventure {
 			return HeroFactory.createSorceress();
 		case 3:
 			return HeroFactory.createThief();
+		case 4:
+			return HeroFactory.createArcher();
+		case 5:
+			return HeroFactory.createBard();
 		default:
 			System.out.println("invalid choice, returning Thief");
 			return HeroFactory.createThief();
@@ -150,20 +163,21 @@ public class DungeonAdventure {
 	private static Monster generateMonster() {
 		int choice;
 
-		choice = (int) (Math.random() * 3) + 1;
+		choice = (int) (Math.random() * 5) + 1;
 
 		switch (choice) {
 		case 1:
 			return MonsterFactory.createOgre();
-
 		case 2:
 			return MonsterFactory.createGremlin();
-
 		case 3:
 			return MonsterFactory.createSkeleton();
-
+		case 4:
+			return MonsterFactory.createGolem();
+		case 5:
+			return MonsterFactory.createGiantSpider();
 		default:
-			System.out.println("invalid choice, returning Skeleton");
+			System.out.println("Invalid choice, returning Skeleton");
 			return MonsterFactory.createSkeleton();
 		}// end switch
 	}// end generateMonster method
@@ -175,7 +189,7 @@ public class DungeonAdventure {
 				playerChoice = scan.nextInt();
 				scan.nextLine();
 			} catch(Exception e) {
-				System.out.println("HI");
+				System.out.println("Invalid Input. Try Again.");
 				playerChoice = 0;
 			}
 		}

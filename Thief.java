@@ -26,14 +26,23 @@ public class Thief extends Hero {
 	
 	public void battleChoices(DungeonCharacter opponent) {
 		super.battleChoices(opponent);
-		int choice;
+		int choice = 0;
 
 		do {
 			System.out.println("1. Attack Opponent");
 			System.out.println("2. Surprise Attack");
 			System.out.print("Choose an option: ");
 
-			choice = scan.nextInt();
+			while(choice != 1 && choice != 2) {
+				try {
+					choice = scan.nextInt();
+					scan.nextLine();
+				} catch(Exception e) {
+					System.out.println("Invalid Input. Try again.");
+					choice = 0;
+					scan.nextLine();
+				}
+			}
 
 			switch (choice) {
 			case 1:
