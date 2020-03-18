@@ -77,7 +77,6 @@ public class Dungeon {
 	playAgain allows gets choice from user to play another game.  It returns
 	true if the user chooses to continue, false otherwise.
 	---------------------------------------------------------------------*/
-
 	private static boolean playAgain() {
 		String again;
 
@@ -93,7 +92,6 @@ public class Dungeon {
 	goes first, then the Monster.  At the conclusion of each round, the
 	user has the option of quitting.
 	---------------------------------------------------------------------*/
-
 	private static void battle(Hero theHero, Monster theMonster) {
 		String pause = "p";
 
@@ -109,7 +107,6 @@ public class Dungeon {
 			// monster's turn (provided it's still alive!)
 			if (theMonster.isAlive())
 				theMonster.attack(theHero);
-
 
 			// let the player bail out if desired
 			System.out.print("Total ammount of attack objects made: " + AttackFlyweightPool.getTotalAttackObjectsMade());
