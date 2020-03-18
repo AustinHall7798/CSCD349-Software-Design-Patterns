@@ -13,6 +13,9 @@ public class Dungeon {
 	private int x = 0;
 	private int y = 0;
 	private Random rand = new Random();
+<<<<<<< HEAD
+=======
+>>>>>>> master
 	
 	public Dungeon(Hero player) {
 		this.player = player;
@@ -107,6 +110,7 @@ public class Dungeon {
 		if(getCurrentRoom().getHealingPotionCount() > 0) {
 			System.out.println("You found a healing potion! Added it to your inventory");
 			player.addHealingPotion();
+<<<<<<< HEAD
 			healingPotionCount--;
 		}
 		if(getCurrentRoom().getVisionPotionCount() > 0) {
@@ -122,6 +126,8 @@ public class Dungeon {
 			pit.fallInPit();
 			System.out.println(player.getName() + " fell into a pit and took " + pit.getDamage() + " points of damage");
 			pitCount--;
+=======
+>>>>>>> master
 		}
 		if(getCurrentRoom().getMonsterCount() > 0) {
 			DungeonAdventure.battle(player);
