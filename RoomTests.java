@@ -19,6 +19,7 @@ class RoomTests {
 	VisionPotion vp = new VisionPotion(dun);
 	int count;
 	int k = 0;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 	}

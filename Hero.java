@@ -91,11 +91,11 @@ public abstract class Hero extends DungeonCharacter {
 	}
   
 	public void drinkVisionPotion() {
-		if(getHealingPotionCount() > 0) {
+		if(getVisionPotionCount() > 0) {
 			visionPotions.get(0).drinkPotion();
 			System.out.println("You drink a Vision Potion. It reveals the surrounding rooms.");
 			visionPotions.remove(0);
-		} else if(getHealingPotionCount() == 0) {
+		} else if(getVisionPotionCount() == 0) {
 			System.out.println("You don't have any Vision Potions.");
 		} else {
 			System.out.println("Unexpected negative number.");
