@@ -1,21 +1,16 @@
-import java.util.Random;
-
 public class HealingPotion {
 
-	Random rand = new Random();
-	DungeonCharacter healTarget;
-	int healAmount;
+	private int restoredHitPoints;
+	private final int minPotionRestore = 5;
+	private final int maxPotionRestore = 15;
 	
-	public HealingPotion(DungeonCharacter healTarget) {
-		this.healTarget = healTarget;
+	public HealingPotion() {
+
+		this.restoredHitPoints = (int)(Math.random() * (maxPotionRestore - minPotionRestore)) + minPotionRestore;
 	}
 	
-	private void generatePotion() {
-		healAmount = (int) rand.nextInt(10) + 5;
+	public int getHealingPotionHealthValue() {
+		return restoredHitPoints;
 	}
 	
-	public void drinkHealingPotion() {
-		generatePotion();
-		this.healTarget.addHitPoints(healAmount);
-	}
 }

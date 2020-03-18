@@ -27,9 +27,6 @@ public class HeroTest {
 		testHero.addHealingPotion();
 		assertEquals(1, testHero.getHealingPotionCount());
 		
-		testHero.addVisionPotion();
-		assertEquals(1, testHero.getVisionPotionCount());
-		
 		// Drinking a potion (Hero starts with one potion, drinks, count should be 0)
 		testHero.drinkHealingPotion();
 		assertEquals(0, testHero.getHealingPotionCount());
