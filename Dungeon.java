@@ -139,6 +139,7 @@ public class Dungeon {
 	}
 	
 	public void printDungeon() {
+		bigString = "";
 		for(int i = 0; i < roomArray.length; i++) {
 			for(int j = 0; j < roomArray[i].length; j++) {
 				bigString += getSpecificRoom(i, j).toString();
