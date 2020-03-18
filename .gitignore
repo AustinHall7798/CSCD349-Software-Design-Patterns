@@ -31,3 +31,17 @@
 /AbstractionPillar.class
 /PolymorphismPillar.class
 /InheritancePillar.class
+/Archer.class
+/AttackFlyweightPool.class
+/AttackName.class
+/AttackTest.class
+/Bard.class
+/DoubleShot.class
+/DungeonCharacterTest.class
+/GiantSpider.class
+/Golem.class
+/HeroTest.class
+/MockDungeonCharacter.class
+/MonsterTest.class
+/PlayMelody.class
+/SurpriseAttack.class
