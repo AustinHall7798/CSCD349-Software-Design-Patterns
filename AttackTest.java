@@ -7,23 +7,35 @@ import org.junit.jupiter.api.Test;
 
 public class AttackTest {
 
-	Hero testHero;
-	Monster testMonster;
+	MockDungeonCharacter testHero, testMonster;
 	Attack attackTest;
 	@BeforeEach
 	public void setup() throws Exception {
-		testHero = HeroFactory.createWarrior();
-		testMonster = MonsterFactory.createGolem();
-		 attackTest = AttackFlyweightPool.getAttack(AttackName.STANDARD, testHero, testMonster);
+		testHero = new MockDungeonCharacter();
+		testMonster = new MockDungeonCharacter();
+
 	}
 	
 	@Test
 	public void testAttackPool() {
-		//test to see if only 1 amount of attack objects were created
-		assertEquals(1, AttackFlyweightPool.getTotalAttackObjectsMade());
+		//test to see if only x amount of attack objects were created
+		assertEquals(0, AttackFlyweightPool.getTotalAttackObjectsMade());
 		
 		attackTest = AttackFlyweightPool.getAttack(AttackName.CRUSHINGBLOW, testHero, testMonster);
+		
+		assertEquals(1, AttackFlyweightPool.getTotalAttackObjectsMade());
+		
+		attackTest = AttackFlyweightPool.getAttack(AttackName.DOUBLESHOT, testHero, testMonster);
+		
 		assertEquals(2, AttackFlyweightPool.getTotalAttackObjectsMade());
+		
+		for(int i = 0 ; i < 100 ; i++)
+		{
+			attackTest = AttackFlyweightPool.getAttack(AttackName.STANDARD, testHero, testMonster);
+		}
+
+		assertEquals(3, AttackFlyweightPool.getTotalAttackObjectsMade());
+		
 	}
 	
 }
