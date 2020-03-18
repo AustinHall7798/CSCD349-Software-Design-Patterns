@@ -168,15 +168,12 @@ public class DungeonAdventure {
 		}// end switch
 	}// end generateMonster method
 
-	private static void executePlayerChoice(Dungeon dungeon) {		
-		System.out.println("Your Choice: ");
-		
+	private static void executePlayerChoice(Dungeon dungeon) {				
 		int playerChoice = 0;
 		while(playerChoice <= 0 || playerChoice >= 9 && playerChoice != 99) {
 			try {
 				playerChoice = scan.nextInt();
 				scan.nextLine();
-				System.out.println(playerChoice);
 			} catch(Exception e) {
 				System.out.println("HI");
 				playerChoice = 0;
