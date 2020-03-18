@@ -53,6 +53,10 @@ public class Dungeon {
 		return roomArray[0].length;
 	}
 	
+	public Room[][] getRoomArray() {
+		return roomArray;
+	}
+	
 	public int getArrayHeight() {
 		return roomArray.length;
 	}
@@ -65,6 +69,32 @@ public class Dungeon {
 		return roomArray[x][y];
 	}
 	
+	
+	public int getHealingPotionCount() {
+		return healingPotionCount;
+	}
+
+	public int getVisionPotionCount() {
+		return visionPotionCount;
+	}
+
+	public int getPitCount() {
+		return pitCount;
+	}
+
+	public int getPillarCount() {
+		return pillarCount;
+	}
+
+	public int getMonsterCount() {
+		return monsterCount;
+	}
+	
+	public void backtrackToEntrance() {
+		this.x = 0;
+		this.y = 0;
+	}
+
 	public void moveNorth() {
 		if(getX() == 0) {
 			System.out.println("Not able to move north");
@@ -125,6 +155,7 @@ public class Dungeon {
 	}
 	
 	public void printDungeon() {
+		bigString = "";
 		for(int i = 0; i < roomArray.length; i++) {
 			for(int j = 0; j < roomArray[i].length; j++) {
 				bigString += getSpecificRoom(i, j).toString();
