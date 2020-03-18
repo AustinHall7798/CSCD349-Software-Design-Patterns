@@ -14,6 +14,8 @@ public class Dungeon {
 	private int y = 0;
 	private Random rand = new Random();
 	private HealingPotion healPotion;
+	private String[] lines;
+	private String bigString = "";
 	
 	public Dungeon(Hero player) {
 		this.player = player;
@@ -99,23 +101,58 @@ public class Dungeon {
 		if(getCurrentRoom().getHealingPotionCount() > 0) {
 			System.out.println("Found a healing potion, added to inventory");
 			player.addHealingPotion();
+			getCurrentRoom().setHealingPotionCount(0);;
 		}
 		if(getCurrentRoom().getVisionPotionCount() > 0) {
 			System.out.println("Found a vision potion, added to inventory");
 			player.addVisionPotion();
+			getCurrentRoom().setVisionPotionCount(0);
 		}
 		if(getCurrentRoom().getPillarCount() > 0) {
 			System.out.println("Player found the " + getCurrentRoom().getPillar().getType() + " pillar!");
 			player.addPillarOfOO();
+			getCurrentRoom().setPillarCount(0);
 		}
 		if(getCurrentRoom().getPitCount() > 0) {
 			pit.fallInPit();
+			getCurrentRoom().setPitCount(0);
 			System.out.println("Player fell into a pit and took " + pit.getDamage() + " points of damage");
 		}
 		if(getCurrentRoom().getMonsterCount() > 0) {
+			getCurrentRoom().setMonsterCount(0);
 			DungeonAdventure.battle(player);
 		}
 	}
+	
+	public void printDungeon() {
+		for(int i = 0; i < roomArray.length; i++) {
+			for(int j = 0; j < roomArray[i].length; j++) {
+				bigString += getSpecificRoom(i, j).toString();
+			}
+		}
+		lines = bigString.split("\n");
+		printHelper(0, 1, 2, 15, 16, 17);
+		printHelper(15, 16, 17, 30, 31, 32);
+		printHelper(30, 31, 32, 45, 46, 47);
+		printHelper(45, 46, 47, 60, 61, 62);
+		printHelper(60, 61, 62, lines.length, lines.length, lines.length);
+	}
+	
+	private void printHelper(int a, int b, int c, int x, int y, int z) {
+		for(int i = a; i < x; i += 3) {
+			System.out.print(lines[i]);
+		}
+		System.out.println();
+		for(int k = b; k < y; k += 3) {
+			System.out.print(lines[k]);
+		}
+		System.out.println();
+		for(int j = c; j < z; j += 3) {
+			System.out.print(lines[j]);
+		}
+		System.out.println();
+	}
+	
 	
 	private void getDungeonInfo() {
 		for(int i = 0; i < roomArray.length; i++) {
