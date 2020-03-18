@@ -16,15 +16,18 @@ public class Room {
 	public Room(DungeonCharacter player, int x, int y) {
 		this.x = x;
 		this.y = y;
-		if (rand.nextInt(100) < 20) {
+		if((x == 0 && y == 0) || (x == 4 && y == 4)) {
+			return;
+		}
+		if (rand.nextInt(100) < 15) {
 			this.pitCount++;
 			this.currentObject = "P";
 		}
-		if (rand.nextInt(100) < 20) {
+		if (rand.nextInt(100) < 15) {
 			this.healingPotionCount = 1;
 			this.currentObject = "H";
 		}
-		if (rand.nextInt(100) < 20) {
+		if (rand.nextInt(100) < 10) {
 			this.visionPotionCount = 1;
 			this.currentObject = "V";
 		}
@@ -108,8 +111,10 @@ public class Room {
 			return "* - *\n* " + currentObject + " |\n* * *\n";
 		} else if (x == roomArray.length - 1) {
 			return "* - *\n| " + currentObject + " |\n* * *\n";
+		} else if (y == roomArray[0].length - 1 && x == 0) {
+			return "* * *\n| " + currentObject + " *\n* - *\n";
 		} else if (y == roomArray[0].length - 1) {
-			return "* - *\n* " + currentObject + " *\n* - *\n";
+			return "* - *\n| " + currentObject + " *\n* - *\n";
 		} else if (x == 0) {
 			return "* * *\n| " + currentObject + " |\n* - *\n";
 		} else if (y == 0) {

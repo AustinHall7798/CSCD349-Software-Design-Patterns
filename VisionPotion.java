@@ -1,9 +1,9 @@
 
 public class VisionPotion {
-	Dungeon dungeon;
-	int x, y;
-	String[] lines;
-	String bigString = "";
+	private Dungeon dungeon;
+	private int x, y;
+	private String[] lines;
+	private String bigString = "";
 	public VisionPotion(Dungeon dungeon) {
 		this.dungeon = dungeon;
 		this.x = dungeon.getX();
@@ -13,6 +13,7 @@ public class VisionPotion {
 	public void drinkPotion() {
 		this.x = dungeon.getX();
 		this.y = dungeon.getY();
+		bigString = "";
 		if(x - 1 >= 0 && y - 1 >= 0) {
 			bigString += dungeon.getSpecificRoom(x - 1, y - 1).toString();
 		}
@@ -44,14 +45,17 @@ public class VisionPotion {
 		printVision();
 	}
 	
-	public void printVision() {
-		if(dungeon.getCurrentRoom().equals(dungeon.entrance)) {
+	private void printVision() {
+		if(dungeon.getCurrentRoom().equals(dungeon.getEntrance())) {
 			printHelper(0, 1, 2, 6, 7, 8);
 			printHelper(6, 7, 8, lines.length, lines.length, lines.length);
-		} else if (y == 0){
+		} else if (y == 4 || y == 0 || x== 0){
 			printHelper(0, 1, 2, 6, 7, 8);
 			printHelper(6, 7, 8, 12, 13, 14);
 			printHelper(12, 13, 14, lines.length, lines.length, lines.length);
+		} else if (x == 4) {
+			printHelper(0, 1, 2, 9, 10, 11);
+			printHelper(9, 10, 11, lines.length, lines.length, lines.length);
 		} else {
 			printHelper(0, 1, 2, 9, 10, 11);
 			printHelper(9, 10, 11, 18, 19, 20);
@@ -59,7 +63,7 @@ public class VisionPotion {
 		}
 	}
 	
-	public void printHelper(int a, int b, int c, int x, int y, int z) {
+	private void printHelper(int a, int b, int c, int x, int y, int z) {
 		for(int i = a; i < x; i += 3) {
 			System.out.print(lines[i]);
 		}

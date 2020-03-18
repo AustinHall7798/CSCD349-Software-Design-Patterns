@@ -1,8 +1,8 @@
 
 public class AbstractionPillar extends Pillar {
 
-	String pillarType;
-	static AbstractionPillar pillar;
+	private String pillarType;
+	private static AbstractionPillar pillar;
 
 	private AbstractionPillar(String type) {
 		this.pillarType = type;

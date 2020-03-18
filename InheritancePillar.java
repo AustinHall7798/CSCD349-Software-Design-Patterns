@@ -1,7 +1,7 @@
 
 public class InheritancePillar extends Pillar{
-	String pillarType;
-	static InheritancePillar pillar;
+	private String pillarType;
+	private static InheritancePillar pillar;
 
 	private InheritancePillar(String type) {
 		this.pillarType = type;

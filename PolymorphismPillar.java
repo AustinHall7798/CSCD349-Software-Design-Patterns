@@ -1,7 +1,7 @@
 
 public class PolymorphismPillar extends Pillar{
-	String pillarType;
-	static PolymorphismPillar pillar;
+	private String pillarType;
+	private static PolymorphismPillar pillar;
 
 	private PolymorphismPillar(String type) {
 		this.pillarType = type;

@@ -12,6 +12,10 @@ class RoomTests {
 	Room[][] roomArray = new Room[10][5];
 	String[] counta = new String[50];
 	Dungeon dun = new Dungeon(player);
+	Dungeon dun1 = new Dungeon(player);
+	Dungeon dun2 = new Dungeon(player);
+	Dungeon dun3 = new Dungeon(player);
+	Dungeon dun4 = new Dungeon(player);
 	VisionPotion vp = new VisionPotion(dun);
 	int count;
 	int k = 0;
@@ -41,12 +45,27 @@ class RoomTests {
 		
 		
 		System.out.println(dun.getCurrentRoom().toString());
-		dun.moveEast();
-		dun.moveEast();
+		dun.moveSouth();
+		System.out.println(dun.getCurrentRoom().toString());
+		vp.drinkPotion();
+		
+		dun.moveSouth();
+		System.out.println(dun.getCurrentRoom().toString());
+		vp.drinkPotion();
+		
+		dun.moveSouth();
+		dun.moveSouth();
+		dun.moveSouth();
+		dun.moveSouth();
+		dun.moveSouth();
 		dun.moveEast();
 		System.out.println(dun.getCurrentRoom().toString());
 		vp.drinkPotion();
 		
-		
+		System.out.println(dun.toString());
+		System.out.println(dun1.toString());
+		System.out.println(dun2.toString());
+		System.out.println(dun3.toString());
+		System.out.println(dun4.toString());
 	}
 }

@@ -1,13 +1,17 @@
 import java.util.Random;
 
 public class Dungeon {
-	Hero player;
-	Room[][] roomArray = new Room[5][5];
-	int x = 0;
-	int y = 0;
-	Room entrance = roomArray[0][0];
-	Room exit = roomArray[4][4];
-	Random rand = new Random();
+	private int healingPotionCount;
+	private int visionPotionCount;
+	private int pitCount;
+	private int pillarCount;
+	private int monsterCount;
+	private Hero player;
+	private Room[][] roomArray = new Room[5][5];
+	private Room entrance = roomArray[0][0];
+	private int x = 0;
+	private int y = 0;
+	private Random rand = new Random();
 	
 	public Dungeon(Hero player) {
 		this.player = player;
@@ -20,10 +24,10 @@ public class Dungeon {
 				roomArray[i][j] = new Room(player, i, j);
 			}
 		}
-			roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(AbstractionPillar.createPillar());
-			roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(InheritancePillar.createPillar());
-			roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(PolymorphismPillar.createPillar());
-			roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(EncapsulationPillar.createPillar());
+			while(roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(AbstractionPillar.createPillar()) != true);
+			while(roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(InheritancePillar.createPillar()) != true);
+			while(roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(PolymorphismPillar.createPillar()) != true);
+			while(roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(EncapsulationPillar.createPillar()) != true);
 		
 	}
 	
@@ -35,12 +39,16 @@ public class Dungeon {
 		return y;
 	}
 	
+	public Room getEntrance() {
+		return entrance;
+	}
+	
 	public int getArrayWidth() {
-		return this.roomArray[0].length;
+		return roomArray[0].length;
 	}
 	
 	public int getArrayHeight() {
-		return this.roomArray.length;
+		return roomArray.length;
 	}
 	
 	public Room getCurrentRoom() {
@@ -81,5 +89,24 @@ public class Dungeon {
 		} else {
 			this.y += 1;
 		}
+	}
+	
+	private void getDungeonInfo() {
+		for(int i = 0; i < roomArray.length; i++) {
+			for(int j = 0; j < roomArray[i].length; j++) {
+				healingPotionCount += roomArray[i][j].getHealingPotionCount();
+				visionPotionCount += roomArray[i][j].getVisionPotionCount();
+				pitCount += roomArray[i][j].getPitCount();
+				pillarCount += roomArray[i][j].getPillarCount();
+				monsterCount += roomArray[i][j].getMonsterCount();
+			}
+		}
+	}
+	
+	public String toString() {
+		getDungeonInfo();
+		return "This dungeon has " + this.healingPotionCount + " healing potions, " + this.visionPotionCount +
+				" vision potions, " + this.pitCount + " pits. " + this.pillarCount + " pillars, " +
+				" and " + this.monsterCount + " monsters left in it.";
 	}
 }

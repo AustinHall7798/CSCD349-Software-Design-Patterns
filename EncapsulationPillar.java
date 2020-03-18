@@ -1,7 +1,7 @@
 
 public class EncapsulationPillar extends Pillar {
-	String pillarType;
-	static EncapsulationPillar pillar;
+	private String pillarType;
+	private static EncapsulationPillar pillar;
 
 	private EncapsulationPillar(String type) {
 		this.pillarType = type;
