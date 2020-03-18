@@ -22,6 +22,9 @@ public class Dungeon {
 >>>>>>> master
 	
 =======
+	private HealingPotion healPotion;
+	private String[] lines;
+	private String bigString = "";
   
 >>>>>>> 3ac04941c5f8f53c5e227dbef93805099b69fa79
 	public Dungeon(Hero player) {
