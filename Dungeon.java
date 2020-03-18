@@ -97,16 +97,20 @@ public class Dungeon {
 	
 	public void checkRoom() {
 		if(getCurrentRoom().getHealingPotionCount() > 0) {
+			System.out.println("Found a healing potion, added to inventory");
 			player.addHealingPotion();
 		}
 		if(getCurrentRoom().getVisionPotionCount() > 0) {
+			System.out.println("Found a vision potion, added to inventory");
 			player.addVisionPotion();
 		}
 		if(getCurrentRoom().getPillarCount() > 0) {
+			System.out.println("Player found the " + getCurrentRoom().getPillar().getType() + " pillar!");
 			player.addPillarOfOO();
 		}
 		if(getCurrentRoom().getPitCount() > 0) {
 			pit.fallInPit();
+			System.out.println("Player fell into a pit and took " + pit.getDamage() + " points of damage");
 		}
 		if(getCurrentRoom().getMonsterCount() > 0) {
 			DungeonAdventure.battle(player);

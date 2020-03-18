@@ -6,8 +6,6 @@ public class VisionPotion {
 	private String bigString = "";
 	public VisionPotion(Dungeon dungeon) {
 		this.dungeon = dungeon;
-		this.x = dungeon.getX();
-		this.y = dungeon.getY();
 	}
 	
 	public void drinkPotion() {

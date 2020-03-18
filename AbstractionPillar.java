@@ -16,4 +16,8 @@ public class AbstractionPillar extends Pillar {
 			return pillar;
 		}
 	}
+	
+	public String getType() {
+		return this.pillarType;
+	}
 }

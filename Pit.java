@@ -17,4 +17,8 @@ public class Pit {
 		generatePitDamage();
 		this.pitTarget.subtractHitPoints(damageAmount);
 	}
+	
+	public int getDamage() {
+		return damageAmount;
+	}
 }

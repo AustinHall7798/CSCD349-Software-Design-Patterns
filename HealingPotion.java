@@ -8,11 +8,14 @@ public class HealingPotion {
 	
 	public HealingPotion(DungeonCharacter healTarget) {
 		this.healTarget = healTarget;
-		generatePotion();
-		this.healTarget.addHitPoints(healAmount);
 	}
 	
 	private void generatePotion() {
 		healAmount = (int) rand.nextInt(10) + 5;
+	}
+	
+	public void drinkHealingPotion() {
+		generatePotion();
+		this.healTarget.addHitPoints(healAmount);
 	}
 }

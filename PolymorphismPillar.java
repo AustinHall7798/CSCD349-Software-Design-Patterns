@@ -15,4 +15,8 @@ public class PolymorphismPillar extends Pillar{
 			return pillar;
 		}
 	}
+	
+	public String getType() {
+		return this.pillarType;
+	}
 }
