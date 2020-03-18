@@ -1,46 +1,111 @@
 import java.util.Scanner;
 
 /**
- * Title: Dungeon.java
- *
- * Description: Driver file for Heroes and Monsters project
- *
- * Copyright: Copyright (c) 2001 Company: Code Dogs Inc. I.M. Knurdy
- *
- * History: 11/4/2001: Wrote program --created DungeonCharacter class --created
- * Hero class --created Monster class --had Hero battle Monster --fixed attack
- * quirks (dead monster can no longer attack) --made Hero and Monster abstract
- * --created Warrior --created Ogre --made Warrior and Ogre battle --added
- * battleChoices to Hero --added special skill to Warrior --made Warrior and
- * Ogre battle --created Sorceress --created Thief --created Skeleton --created
- * Gremlin --added game play features to Dungeon.java (this file) 11/27/2001:
- * Finished documenting program version 1.0
+	Team Contributions:
+		C. William Bafus:
+			Summary
+				Implemented Hero
+				Implemented Factories
+				Implemented DungeonAdventure
+				
+			Majority author the following classes:
+				DungeonAdventure
+				Hero
+				HeroTest
+				MonsterTest
+				DungeonCharacterTest
+				Hero Factory
+				Monster Factory
+				
+			Assisting author of the following classes:
+				Dungeon
+				HealingPotion
+			
+			Miscellaneous
+				Reviewed for code standards requirements
+			
+		Austin Hall:
+			Summary
+				Implemented Room
+				Implemented Dungeon
+				Implemented Strategy Pattern for Attacks
+				
+			Majority author the following classes:
+				AbstractionPillar
+				Attack (interface)
+				Crushing Blow
+				Dungeon
+				EncapsulationPillar
+				HealingPotion
+				InheritancePillar
+				Pillar
+				Pit
+				Polymorphism Pillar
+				Room
+				RoomTests
+				StandardAttack
+				SupriseAttack
+				VisionPotion
+				
+			Assisting author of the following classes:
+
+			Miscellaneous
+				Hosted GitHub Project
+				UML Diagram
+
+		Michael Minka: 
+			Summary
+				Implemented additional Heroes/Monsters
+				Implemented Flyweight
+				
+			Majority author the following classes:
+				AttackFlyweightPool
+				AttackName
+				AttackTest
+				Bard
+				DoubleShot
+				GiantSpider
+				Golem
+				MockDungeonCharacter
+				PlayMelody
+				
+			Assisting author of the following classes:
+
+			Miscellaneous
+			
+			
+			
  */
 
-/*
- * This class is the driver file for the Heroes and Monsters project. It will do
- * the following:
- * 
- * 1. Allow the user to choose a hero 2. Randomly select a monster 3. Allow the
- * hero to battle the monster
- * 
- * Once a battle concludes, the user has the option of repeating the above
- * 
- */
 public class DungeonAdventure {
-
+	private static final String welcomeMessage = "Welcome to a Dungeon Adventure.\nYou'll take on the role of the wandering adventurer who happens upon the ruins of an ancient city.\nVenturing within, you'll find monsters, traps, and some helpful items.\nSearch the ruins for the four Pillars of OO to win the game.\n";
+	
 	private static Scanner scan = new Scanner(System.in);
+	private static Hero theHero;
+	private static Monster theMonster;
+	private static Dungeon dungeon;
 
 	public static void main(String[] args) {
-
-		Hero theHero;
-		Monster theMonster;
-
+		
+		System.out.println(welcomeMessage);
+		
 		do {
 			theHero = chooseHero();
 			theMonster = generateMonster();
-			battle(theHero, theMonster);
-
+			dungeon = new Dungeon(theHero);
+			
+			while(theHero.getHitPoints() > 0 && theHero.getPillarsOfOOCount() <= 4) {
+				if(theHero.getPillarsOfOOCount() == 4) {
+					System.out.println("You've found all the Pillars of OO!");
+					break;
+				}
+				
+				printGameStatus(dungeon);
+				executePlayerChoice(dungeon);
+			}
+			
+			// TODO print entire dungeon
+			
 		} while (playAgain());
 	}// end main method
 
@@ -94,11 +159,50 @@ public class DungeonAdventure {
 		}// end switch
 	}// end generateMonster method
 
+	private static void executePlayerChoice(Dungeon dungeon) {		
+		System.out.println("Your Choice: ");
+		
+		int playerChoice = 0;
+		while(playerChoice <= 0 || playerChoice >= 7 && playerChoice != 99) {
+			try {
+				playerChoice = scan.nextInt();
+				scan.nextLine();
+				System.out.println(playerChoice);
+			} catch(Exception e) {
+				System.out.println("HI");
+				playerChoice = 0;
+			}
+		}
+		
+		if(playerChoice == 1) {
+			dungeon.moveNorth();
+		}else if(playerChoice == 2) {
+			dungeon.moveEast();
+		}else if(playerChoice == 3) {
+			dungeon.moveSouth();
+		}else if(playerChoice == 4) {
+			dungeon.moveWest();
+		}else if(playerChoice == 5) {
+			System.out.println(theHero.toString());
+		}else if(playerChoice == 6) {
+			theHero.drinkHealingPotion();
+		}else if(playerChoice == 7) {
+			theHero.drinkVisionPotion();
+		}else if(playerChoice == 8) {
+			System.out.println("GoodBye...");
+			System.exit(0);
+		}else if(playerChoice == 99) {
+			// TODO Hidden menu option: print whole dungeon
+		}else {
+			System.out.println("Unexpected Error. Closing.");
+			System.exit(0);
+		}
+	}
+	
 	/*-------------------------------------------------------------------
 	playAgain allows gets choice from user to play another game.  It returns
 	true if the user chooses to continue, false otherwise.
 	---------------------------------------------------------------------*/
-
 	private static boolean playAgain() {
 		String again;
 
@@ -114,7 +218,6 @@ public class DungeonAdventure {
 	goes first, then the Monster.  At the conclusion of each round, the
 	user has the option of quitting.
 	---------------------------------------------------------------------*/
-
 	public static void battle(Hero theHero) {
 		battle(theHero, generateMonster());
 	}
@@ -149,4 +252,20 @@ public class DungeonAdventure {
 			System.out.println("Quitters never win ;-)");
 		}
 	}// end battle method
+	
+	private static void printGameStatus(Dungeon dungeon) {
+		System.out.println("\nYour Current Location...");
+		
+		System.out.println(dungeon.getCurrentRoom().toString());
+		
+		System.out.println("What would you like to do?");
+		System.out.println("1. Move North");
+		System.out.println("2. Move East");
+		System.out.println("3. Move South");
+		System.out.println("4. Move West");
+		System.out.println("5. Print Hero Info");
+		System.out.println("6. Drink Healing Potion");
+		System.out.println("7. Drink Vision Potion");
+		System.out.println("8. Exit Game");
+	}
 }// end Dungeon class

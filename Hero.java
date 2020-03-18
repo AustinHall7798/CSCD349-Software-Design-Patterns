@@ -1,12 +1,12 @@
-import java.util.Scanner;
+import java.util.*;
 
 public abstract class Hero extends DungeonCharacter {
 	protected double chanceToBlock;
 	protected int numTurns;
 	private Scanner scan = new Scanner(System.in);
-	private int healingPotionCount = 0;
-	private int visionPotionCount = 0;
-	private int pillarsOfOOCount = 0;
+	private ArrayList<HealingPotion> healingPotions = new ArrayList<HealingPotion>();
+	private ArrayList<VisionPotion> visionPotions = new ArrayList<VisionPotion>();
+	private ArrayList<Pillar> pillars = new ArrayList<Pillar>();
 
 	// calls base constructor and gets name of hero from user
 	public Hero(String name, int hitPoints, int attackSpeed, double chanceToHit, int damageMin, int damageMax, double chanceToBlock) {
@@ -53,36 +53,37 @@ public abstract class Hero extends DungeonCharacter {
 	}
   
 	public int getHealingPotionCount() {
-		return this.healingPotionCount;
+		return healingPotions.size();
 	}
 	
 	public int getVisionPotionCount() {
-		return this.visionPotionCount;
+		return visionPotions.size();
 	}
 	
 	public int getPillarsOfOOCount() {
-		return this.pillarsOfOOCount;
+		return pillars.size();
 	}
 	
 	public void addHealingPotion() {
-		healingPotionCount++;
+		healingPotions.add(new HealingPotion());
 	}
 	
-	public void addVisionPotion() {
-		visionPotionCount++;
+	public void addVisionPotion(Dungeon dungeon) {
+		visionPotions.add(new VisionPotion(dungeon));
+	}
+	
+	public void addPillarOfOO(Pillar pillar) {
+		pillars.add(pillar);
 	}
   
 	// Removes a healing potion from the Hero and increases hero's health
 	public void drinkHealingPotion() {
-		if(healingPotionCount > 0) {
-			int minPotionRestore = 5;
-			int maxPotionRestore = 15;
-
-			int restoredHitPoints = (int)(Math.random() * (maxPotionRestore - minPotionRestore)) + minPotionRestore;
-			super.addHitPoints(restoredHitPoints);
-      
-			healingPotionCount--;
-		} else if(healingPotionCount == 0) {
+		if(getHealingPotionCount() > 0) {
+			super.addHitPoints(healingPotions.get(0).getHealingPotionHealthValue());
+			System.out.println("You drink a healing potion. It restores " + healingPotions.get(0).getHealingPotionHealthValue() + " points of health.");
+			System.out.println("You now have " + this.getHitPoints() + " hitpoints.");
+			healingPotions.remove(0);
+		} else if(getHealingPotionCount() == 0) {
 			System.out.println("You don't have any Healing Potions");
 		} else {
 			System.out.println("Unexpected negative number.");
@@ -90,16 +91,14 @@ public abstract class Hero extends DungeonCharacter {
 	}
   
 	public void drinkVisionPotion() {
-		if(visionPotionCount > 0) {
-			visionPotionCount--;
-		} else if(visionPotionCount == 0) {
+		if(getHealingPotionCount() > 0) {
+			visionPotions.get(0).drinkPotion();
+			System.out.println("You drink a Vision Potion. It reveals the surrounding rooms.");
+			visionPotions.remove(0);
+		} else if(getHealingPotionCount() == 0) {
 			System.out.println("You don't have any Vision Potions.");
 		} else {
 			System.out.println("Unexpected negative number.");
 		}
-	}
-  
-	public void addPillarOfOO() {
-		pillarsOfOOCount++;
 	}
 }// end Hero class

@@ -16,11 +16,10 @@ public class Dungeon {
 	private HealingPotion healPotion;
 	private String[] lines;
 	private String bigString = "";
-	
+  
 	public Dungeon(Hero player) {
 		this.player = player;
 		this.pit = new Pit(player);
-		this.healPotion = new HealingPotion(player);
 		createDungeon();
 	}
 	
@@ -33,8 +32,14 @@ public class Dungeon {
 			while(roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(AbstractionPillar.createPillar()) != true);
 			while(roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(InheritancePillar.createPillar()) != true);
 			while(roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(PolymorphismPillar.createPillar()) != true);
-			while(roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(EncapsulationPillar.createPillar()) != true);
-		
+			while(roomArray[rand.nextInt(4)][rand.nextInt(4)].setPillar(EncapsulationPillar.createPillar()) != true);	
+	}
+	
+	public String toString() {
+		getDungeonInfo();
+		return "This dungeon has " + this.healingPotionCount + " healing potions, " + this.visionPotionCount +
+				" vision potions, " + this.pitCount + " pits. " + this.pillarCount + " pillars, " +
+				" and " + this.monsterCount + " monsters left in it.";
 	}
 	
 	public int getX() {
@@ -70,6 +75,7 @@ public class Dungeon {
 			System.out.println("Not able to move north");
 		} else {
 			this.x -= 1;
+			checkRoom();
 		}
 	}
 	
@@ -78,6 +84,7 @@ public class Dungeon {
 			System.out.println("Not able to move south");
 		} else {
 			this.x += 1;
+			checkRoom();
 		}
 	}
 	
@@ -86,6 +93,7 @@ public class Dungeon {
 			System.out.println("Not able to move west");
 		} else {
 			this.y -= 1;
+			checkRoom();
 		}
 	}
 	
@@ -94,33 +102,38 @@ public class Dungeon {
 			System.out.println("Not able to move east");
 		} else {
 			this.y += 1;
+			checkRoom();
 		}
 	}
 	
-	public void checkRoom() {
+	private void checkRoom() {
 		if(getCurrentRoom().getHealingPotionCount() > 0) {
-			System.out.println("Found a healing potion, added to inventory");
+			System.out.println("You found a healing potion! Added it to your inventory");
 			player.addHealingPotion();
-			getCurrentRoom().setHealingPotionCount(0);;
+
+			healingPotionCount--;
 		}
 		if(getCurrentRoom().getVisionPotionCount() > 0) {
-			System.out.println("Found a vision potion, added to inventory");
-			player.addVisionPotion();
-			getCurrentRoom().setVisionPotionCount(0);
+			System.out.println("You found a vision potion. Added it to your inventory");
+			player.addVisionPotion(this);
+			visionPotionCount--;
 		}
 		if(getCurrentRoom().getPillarCount() > 0) {
-			System.out.println("Player found the " + getCurrentRoom().getPillar().getType() + " pillar!");
-			player.addPillarOfOO();
-			getCurrentRoom().setPillarCount(0);
+			System.out.println(player.getName() + " Player found the " + getCurrentRoom().getPillar().getType() + " pillar!");
+			player.addPillarOfOO(getCurrentRoom().getPillar());
 		}
 		if(getCurrentRoom().getPitCount() > 0) {
 			pit.fallInPit();
-			getCurrentRoom().setPitCount(0);
-			System.out.println("Player fell into a pit and took " + pit.getDamage() + " points of damage");
+			System.out.println(player.getName() + " fell into a pit and took " + pit.getDamage() + " points of damage");
+			pitCount--;
 		}
 		if(getCurrentRoom().getMonsterCount() > 0) {
 			getCurrentRoom().setMonsterCount(0);
 			DungeonAdventure.battle(player);
+			monsterCount--;
+		}
+		if(getCurrentRoom().getHealingPotionCount() == 0 && getCurrentRoom().getVisionPotionCount() == 0 && getCurrentRoom().getPillarCount() == 0 && getCurrentRoom().getPitCount() ==  0 && getCurrentRoom().getMonsterCount() == 0) {
+			System.out.println("The room is quiet and empty. You find nothing. Keep exploring.");
 		}
 	}
 	
@@ -164,12 +177,5 @@ public class Dungeon {
 				monsterCount += roomArray[i][j].getMonsterCount();
 			}
 		}
-	}
-	
-	public String toString() {
-		getDungeonInfo();
-		return "This dungeon has " + this.healingPotionCount + " healing potions, " + this.visionPotionCount +
-				" vision potions, " + this.pitCount + " pits. " + this.pillarCount + " pillars, " +
-				" and " + this.monsterCount + " monsters left in it.";
 	}
 }
