@@ -17,6 +17,7 @@ import java.util.Scanner;
 				Hero Factory
 				Monster Factory
 				PotionsTest
+				PillarTest
 				
 			Assisting author of the following classes:
 				Dungeon
