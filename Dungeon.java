@@ -118,7 +118,7 @@ public class Dungeon {
 			visionPotionCount--;
 		}
 		if(getCurrentRoom().getPillarCount() > 0) {
-			System.out.println(player.getName() + " Player found the " + getCurrentRoom().getPillar().getType() + " pillar!");
+			System.out.println(player.getName() + " found the " + getCurrentRoom().getPillar().getType() + " pillar!");
 			player.addPillarOfOO(getCurrentRoom().getPillar());
 			pillarCount--;
 		}

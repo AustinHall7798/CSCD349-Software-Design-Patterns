@@ -78,7 +78,7 @@ import java.util.Scanner;
  */
 
 public class DungeonAdventure {
-	private static final String welcomeMessage = "Welcome to a Dungeon Adventure.\nYou'll take on the role of the wandering adventurer who happens upon the ruins of an ancient city.\nVenturing within, you'll find monsters, traps, and some helpful items.\nSearch the ruins for the four Pillars of OO to win the game.\n";
+	private static final String welcomeMessage = "Welcome to a Dungeon Adventure.\nYou'll take on the role of the wandering adventurer who happens upon the ruins of an ancient city.\nVenturing within, you'll find monsters, traps, and some helpful items.\nSearch the ruins for all four Pillars of OO and then escape the ruins to win the game.\n";
 	
 	private static Scanner scan = new Scanner(System.in);
 	private static Hero theHero;
@@ -88,6 +88,7 @@ public class DungeonAdventure {
 	public static void main(String[] args) {
 		
 		System.out.println(welcomeMessage);
+		boolean pillarFlag = false;
 		
 		do {
 			theHero = chooseHero();
@@ -95,13 +96,21 @@ public class DungeonAdventure {
 			dungeon = new Dungeon(theHero);
 			
 			while(theHero.getHitPoints() > 0 && theHero.getPillarsOfOOCount() <= 4) {
-				if(theHero.getPillarsOfOOCount() == 4) {
-					System.out.println("You've found all the Pillars of OO!");
-					break;
+				if(theHero.getPillarsOfOOCount() == 4 && pillarFlag == false) {
+					System.out.println("You've found all the Pillars of OO! Make your way to the Exit!");
+					pillarFlag = true;
 				}
-				
+				else if(theHero.getPillarsOfOOCount() == 4 && pillarFlag == true) {
+					System.out.println("Quick! Continue searching for the exit!");
+				}
+	
 				printGameStatus(dungeon);
 				executePlayerChoice(dungeon);
+				
+				if(dungeon.getCurrentRoom() == dungeon.getSpecificRoom(4,4) && theHero.getPillarsOfOOCount() == 4) {
+					System.out.println("Congratulations! You've found all the Pillars of OO and have escaped the ruins!");
+					break;
+				}
 			}
 			
 			dungeon.printDungeon();

@@ -1,14 +1,14 @@
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class HeroTest {
 	
 	Hero testHero;
 	
-	@BeforeEach
-	public void setup() throws Exception {
-		 testHero = HeroFactory.createWarrior();
+	@BeforeAll
+	public void setUpBeforeClass() throws Exception {
+		testHero = HeroFactory.createWarrior();
 	}
 	
 	@Test
