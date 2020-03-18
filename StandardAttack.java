@@ -1,12 +1,11 @@
-
 public class StandardAttack implements Attack {
-	DungeonCharacter player;
+	DungeonCharacter self;
 	DungeonCharacter opponent;
 
-	public StandardAttack(DungeonCharacter player, DungeonCharacter opponent) {
-		this.player = player;
+	public StandardAttack(DungeonCharacter self, DungeonCharacter opponent) {
+		this.self = self;
 		this.opponent = opponent;
-
+		
 		attack(opponent);
 	}
 
@@ -14,19 +13,20 @@ public class StandardAttack implements Attack {
 		boolean canAttack;
 		int damage;
 
-		canAttack = Math.random() <= player.getChanceToHit();
+		canAttack = Math.random() <= self.getChanceToHit();
 
 		if (canAttack) {
-			damage = (int) (Math.random() * (player.getDamageMax() - player.getDamageMin() + 1)) + player.getDamageMin();
+			damage = (int) (Math.random() * (self.getDamageMax() - self.getDamageMin() + 1)) + self.getDamageMin();
 			opponent.subtractHitPoints(damage);
-
+			
 			System.out.println();
 		} else {
 
-			System.out.println(player.getName() + "'s attack on " + opponent.getName() + " failed!");
+			System.out.println(self.getName() + "'s attack on " + opponent.getName() + " failed!");
 			System.out.println();
 		} // end else
 
 	}
+	
 
 }

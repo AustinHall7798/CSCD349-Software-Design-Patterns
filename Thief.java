@@ -1,23 +1,29 @@
 import java.util.Scanner;
 
-/**
- * Title: Description: Copyright: Copyright (c) 2001 Company:
- * 
- * @author
- * @version 1.0
- */
-
 public class Thief extends Hero {
 	private Scanner scan = new Scanner(System.in);
+	
+	private final static String name = "Thief";
+	private final static int hitPoints = 75;
+	private final static int attackSpeed = 6;
+	private final static double chanceToHit = .8;
+	private final static int damageMin = 20;
+	private final static int damageMax = 40;
+	private final static double chanceToBlock = .5;
 
 	public Thief() {
-		super("Thief", 75, 6, .8, 20, 40, .5);
+		super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock);
 	}// end constructor
 
 	public void surpriseAttack(DungeonCharacter opponent) {
-		new SupriseAttack(this, opponent);
+		AttackFlyweightPool.getAttack(AttackName.SURPRISEATTACK, this, opponent);
 	}// end surpriseAttack method
-
+	
+	@Override
+	public void attack(DungeonCharacter opponent) {
+		AttackFlyweightPool.getAttack(AttackName.STANDARD, this, opponent);
+	}
+	
 	public void battleChoices(DungeonCharacter opponent) {
 		super.battleChoices(opponent);
 		int choice;
@@ -45,10 +51,5 @@ public class Thief extends Hero {
 				System.out.println("Number of turns remaining is: " + numTurns);
 			}
 		} while (numTurns > 0);
-	}
-
-	@Override
-	public void attack(DungeonCharacter opponent) {
-		new StandardAttack(this, opponent);
 	}
 }
