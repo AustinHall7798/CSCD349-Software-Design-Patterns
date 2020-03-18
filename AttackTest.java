@@ -36,6 +36,15 @@ public class AttackTest {
 
 		assertEquals(3, AttackFlyweightPool.getTotalAttackObjectsMade());
 		
+		
+		//testing if the attack type is indeed the attack type
+		
+		assertTrue(attackTest instanceof StandardAttack);
+		
+		attackTest = AttackFlyweightPool.getAttack(AttackName.CRUSHINGBLOW, testHero, testMonster);
+
+		assertTrue(attackTest instanceof CrushingBlow);
+	
 	}
 	
 }
