@@ -16,6 +16,7 @@ import java.util.Scanner;
 				DungeonCharacterTest
 				Hero Factory
 				Monster Factory
+				PotionsTest
 				
 			Assisting author of the following classes:
 				Dungeon
@@ -23,6 +24,8 @@ import java.util.Scanner;
 			
 			Miscellaneous
 				Reviewed for code standards requirements
+				Added Data Validation for user inputs
+				Created output captures
 			
 		Austin Hall:
 			Summary
