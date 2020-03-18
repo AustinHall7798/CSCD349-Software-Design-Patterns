@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class Archer extends Hero implements Attack {
 	
 	private Scanner scan = new Scanner(System.in);
