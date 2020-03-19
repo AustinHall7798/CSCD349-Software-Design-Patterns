@@ -1,13 +1,22 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class RoomTests {
+	static Room entrance;
+	static Room exit;
+	static Room testRoom;
+	static Hero player;
 	
-		Hero player = new Warrior();
-		Room entrance = new Room(player, 0, 0);
-		Room exit = new Room(player, 4, 4);
-		Room testRoom = new Room(player, 3, 4);
+	@BeforeAll
+	public static void setUp() {
+		 player = new Warrior();
+		 entrance = new Room(player, 0, 0);
+		 exit = new Room(player, 4, 4);
+		 testRoom = new Room(player, 3, 4);
+	}
+		
 	
 	@Test
 	void testSetPillarAtEntranceAndExit() {

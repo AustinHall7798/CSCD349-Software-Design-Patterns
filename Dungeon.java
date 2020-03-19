@@ -159,7 +159,7 @@ public class Dungeon {
 			pit.fallInPit();
 			System.out.println(player.getName() + " fell into a pit and took " + pit.getDamage() + " points of damage");
 			pitCount--;
-			getCurrentRoom().setHealingPotionCount(0);;
+			getCurrentRoom().setHealingPotionCount(0);
 			getCurrentRoom().setPitCount(0);
 		}
 		if(getCurrentRoom().getMonsterCount() > 0) {

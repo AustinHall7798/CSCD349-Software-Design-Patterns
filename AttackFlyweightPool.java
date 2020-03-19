@@ -2,30 +2,30 @@ import java.util.HashMap;
 
 public class AttackFlyweightPool {
 	
-	private final static HashMap<AttackName, Attack> attackMap = new HashMap<AttackName, Attack>();
+	private final static HashMap<AttackName, Attack> ATTACKMAP = new HashMap<AttackName, Attack>();
 
 	public static Attack getAttack(AttackName name, DungeonCharacter self, DungeonCharacter opponent) {
 		if(name == AttackName.STANDARD) {
-			attackMap.putIfAbsent(name, new StandardAttack(self, opponent));
+			ATTACKMAP.putIfAbsent(name, new StandardAttack(self, opponent));
 		} else if(name == AttackName.CRUSHINGBLOW) {
-			attackMap.putIfAbsent(name, new CrushingBlow(self, opponent));
+			ATTACKMAP.putIfAbsent(name, new CrushingBlow(self, opponent));
 		} else if(name == AttackName.DOUBLESHOT) {
-			attackMap.putIfAbsent(name, new DoubleShot(self, opponent));
+			ATTACKMAP.putIfAbsent(name, new DoubleShot(self, opponent));
 		} else if(name == AttackName.PLAYMELODY) {
-			attackMap.putIfAbsent(name, new PlayMelody(self, opponent));
+			ATTACKMAP.putIfAbsent(name, new PlayMelody(self, opponent));
 		} else if(name == AttackName.SURPRISEATTACK) {
-			attackMap.putIfAbsent(name, new SurpriseAttack(self, opponent));
+			ATTACKMAP.putIfAbsent(name, new SurpriseAttack(self, opponent));
 		} else {
-			attackMap.putIfAbsent(AttackName.STANDARD, new StandardAttack(self, opponent));
+			ATTACKMAP.putIfAbsent(AttackName.STANDARD, new StandardAttack(self, opponent));
 		}
 		
-		 Attack attackF = attackMap.get(name);
+		 Attack attackF = ATTACKMAP.get(name);
 		 
 		 return attackF;
 	}
 	
 	public static int getTotalAttackObjectsMade() {
-		return attackMap.size();
+		return ATTACKMAP.size();
 	}
 }
 
