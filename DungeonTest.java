@@ -77,21 +77,22 @@ class DungeonTest {
 	
 	@Test
 	public void testCheckRoomRemovesItems() {
-		dun.moveEast();
-		dun.moveSouth();
 		// While loop so grader wont battle monster while testing
-		while(dun.getCurrentRoom().getMonsterCount() > 0) {
+		if(dun.getSpecificRoom(0, 1).getMonsterCount() == 0) {
 			dun.moveEast();
-			dun.moveSouth();
+			checkRoomHelper(0, 1);
+		} else {
+			if(dun.getSpecificRoom(1, 0).getMonsterCount() == 0) {
+				dun.moveSouth();
+				checkRoomHelper(1, 0);
+			}
 		}
-		int totalRoomItemCountBefore = dun.getCurrentRoom().getHealingPotionCount() + dun.getCurrentRoom().getMonsterCount()
-				+ dun.getCurrentRoom().getPillarCount() + dun.getCurrentRoom().getPitCount() +
-				dun.getCurrentRoom().getVisionPotionCount();
-		assertTrue(totalRoomItemCountBefore > 0 || dun.getCurrentRoom().getCurrentObject().equals("E") || dun.getCurrentRoom().getCurrentObject().equals("M"));
-		dun.checkRoom();
-		int totalRoomItemCountAfter = dun.getCurrentRoom().getHealingPotionCount() + dun.getCurrentRoom().getMonsterCount()
-				+ dun.getCurrentRoom().getPillarCount() + dun.getCurrentRoom().getPitCount() +
-				dun.getCurrentRoom().getVisionPotionCount();
+	}
+
+	public void checkRoomHelper(int x, int y) {
+		int totalRoomItemCountAfter = dun.getSpecificRoom(x, y).getHealingPotionCount() + dun.getSpecificRoom(x, y).getMonsterCount()
+				+ dun.getSpecificRoom(x, y).getPillarCount() + dun.getSpecificRoom(x, y).getPitCount() +
+				dun.getSpecificRoom(x, y).getVisionPotionCount();
 		assertTrue(totalRoomItemCountAfter == 0);
 	}
 	
